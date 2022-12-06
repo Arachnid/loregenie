@@ -57,5 +57,5 @@ Background: Greta was born into a family of nomads and spent much of her life wa
 User: `,
     imagePromptPrefix: 'fantasy character portrait.',
     negativePrompt: 'extra fingers, mutated hands, poorly drawn hands, poorly drawn face, blurry, bad anatomy, bad proportions, extra limbs, cloned face, glitchy, double torso, extra arms, extra hands, mangled fingers, missing lips, distorted face, extra legs, anime',
-    imageModel: 'stablediffusion',
+    imageModel: 'nMmyGaN2OdIpSe3ibzlfKEWtq',
 };
