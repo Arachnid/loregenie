@@ -46,7 +46,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       track_id: null,
     };
     const imageQuery = await fetch(
-      "https://stablediffusionapi.com/api/v3/text2img",
+      "https://stablediffusionapi.com/api/v3/dreambooth",
       {
         method: 'POST',
         body: JSON.stringify(apiRequest),
