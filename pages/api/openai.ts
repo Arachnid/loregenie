@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Get the user's query from the request
-  const query = config.prompt + req.body.query;
+  const query = config.prompt + req.body.query + "\n";
   // Send the query to the OpenAI model
   const result = await openai.createCompletion(
     {
