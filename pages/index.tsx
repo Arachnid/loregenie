@@ -4,12 +4,13 @@ import Head from 'next/head';
 interface QueryResponse {
   error?: string;
   data?: Array<[string, string]>;
+  image: string|null;
 }
 
 const QueryPage: React.FC = () => {
   // State to store the user's query, the response from the OpenAI model, and any errors
   const [query, setQuery] = useState("");
-  const [response, setResponse] = useState<Array<[string,string]> | null>(null);
+  const [response, setResponse] = useState<QueryResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // State to keep track of whether the form is being submitted
@@ -35,10 +36,8 @@ const QueryPage: React.FC = () => {
       if(result.error) {
         setError(result.error);
       }
-      if(result.data) {
-        // Update the state with the model's response
-        setResponse(result.data);
-      }
+      // Update the state with the model's response
+      setResponse(result);
     } catch (err) {
       // Update the state with the error
       setError((err as object).toString());
@@ -67,9 +66,10 @@ const QueryPage: React.FC = () => {
             {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
-        {response && <table>
-          {response.map(([k, v]) => <tr key={k}><th>{k}</th><td>{v}</td></tr>)}
+        {response?.data && <table>
+          {response.data.map(([k, v]) => <tr key={k}><th>{k}</th><td>{v}</td></tr>)}
         </table>}
+        {response?.image && <img src={response.image}/>}
         {error && <p>Error: {error}</p>}
       </main>
     </>
