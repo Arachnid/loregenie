@@ -68,7 +68,7 @@ const QueryPage: React.FC = () => {
           </button>
         </form>
         {response && <table>
-          {response.map(([k, v]) => <tr><th>{k}</th><td>{v}</td></tr>)}
+          {response.map(([k, v]) => <tr key={k}><th>{k}</th><td>{v}</td></tr>)}
         </table>}
         {error && <p>Error: {error}</p>}
       </main>

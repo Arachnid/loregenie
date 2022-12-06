@@ -7,7 +7,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Get the user's query from the request
   const query = config.prompt + req.body.query;
   // Send the query to the OpenAI model
@@ -31,3 +31,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Return the model's response
   res.json({data: rows});
 };
+
+export default handler;
