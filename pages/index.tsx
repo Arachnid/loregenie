@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 
+interface QueryResponse {
+  error?: string;
+  data?: Array<[string, string]>;
+}
+
 const QueryPage: React.FC = () => {
   // State to store the user's query, the response from the OpenAI model, and any errors
   const [query, setQuery] = useState("");
-  const [response, setResponse] = useState<string | null>(null);
-  const [error, setError] = useState<Error | null>(null);
+  const [response, setResponse] = useState<Array<[string,string]> | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  // State to keep track of whether the form is being submitted
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Function to handle the form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Set the isSubmitting state to true to show the loading indicator
+    setIsSubmitting(true);
+
     // Send the user's query to the OpenAI model
     try {
       const res = await fetch("/api/openai", {
@@ -19,34 +31,46 @@ const QueryPage: React.FC = () => {
         },
         body: JSON.stringify({ query }),
       });
-      const result = await res.json();
-      // Update the state with the model's response
-      setResponse(result);
+      const result = await res.json() as QueryResponse;
+      if(result.error) {
+        setError(result.error);
+      }
+      if(result.data) {
+        // Update the state with the model's response
+        setResponse(result.data);
+      }
     } catch (err) {
       // Update the state with the error
-      setError(err);
+      setError((err as object).toString());
     }
+
+    // Set the isSubmitting state to false to hide the loading indicator
+    setIsSubmitting(false);
   };
 
   return (
     <>
       <Head>
-        <title>Query OpenAI Model</title>
+        <title>NPC Forge</title>
       </Head>
       <main>
-        <h1>Query OpenAI Model</h1>
+        <h1>NPC Forge</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="query-input">Query:</label>
+          <label htmlFor="query-input">Concept:</label>
           <input
             id="query-input"
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
         </form>
-        {response && <p>Response: {response}</p>}
-        {error && <p>Error: {error.message}</p>}
+        {response && <table>
+          {response.map(([k, v]) => <tr><th>{k}</th><td>{v}</td></tr>)}
+        </table>}
+        {error && <p>Error: {error}</p>}
       </main>
     </>
   );
