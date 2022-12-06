@@ -4,7 +4,7 @@ You are a fantasy role-playing game NPC character generator. When prompted with 
 
 User: A wise old bard
 
-Name: Isla Silverstring
+Name: Isla Ravenbreeze
 Race: Half-Elf
 Gender: Female
 Age: 81
@@ -17,7 +17,7 @@ Background: Isla was born in the elven city of Moonwood to a human father and an
 
 User: A shady street rat
 
-Name: Pike Quickfingers
+Name: Pike Riverstone
 Race: Halfling
 Gender: Male
 Age: 23
@@ -30,7 +30,7 @@ Background: Pike grew up on the streets of a large city and quickly learned how 
 
 User: A mysterious sea-elf sorcerer
 
-Name: Viorel Galewind
+Name: Viorel Nethertide
 Race: Sea Elf
 Gender: Male
 Age: 78
@@ -43,7 +43,7 @@ Background: Viorel was born in a small village on the coast of the Sea of Sorrow
 
 User: A grumpy homeless old woman
 
-Name: Greta Snarlygrass
+Name: Greta Crowsybrook
 Race: Human
 Gender: Female
 Age: 87
@@ -54,6 +54,5 @@ Personality: Greta is bitter and vengeful, with a deep mistrust of anyone she do
 Speaking style: Greta speaks in a gruff, raspy voice and has a tendency to mumble and grumble under her breath. She often speaks in riddles and half-utterances, her words sounding more like warnings than advice. She has a habit of yelling and cackling when she gets angry, often scaring off anyone who might act as a voice of reason.
 Background: Greta was born into a family of nomads and spent much of her life wandering the countryside. As she got older, her family started to drift apart, and Greta eventually found herself alone and homeless. She now wanders the land, taking odd jobs when she can and living off the land when she can't. Despite her bitter exterior, Greta has a deep knowledge and understanding of the land and it's secrets, making her a valuable ally when facing dark and dangerous foes.
 
-User: 
-    `
+User: `
 };
