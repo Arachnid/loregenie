@@ -55,7 +55,7 @@ Speaking style: Greta speaks in a gruff, raspy voice and has a tendency to mumbl
 Background: Greta was born into a family of nomads and spent much of her life wandering the countryside. As she got older, her family started to drift apart, and Greta eventually found herself alone and homeless. She now wanders the land, taking odd jobs when she can and living off the land when she can't. Despite her bitter exterior, Greta has a deep knowledge and understanding of the land and it's secrets, making her a valuable ally when facing dark and dangerous foes.
 
 User: `,
-    imagePromptPrefix: 'fantasy character portrait.',
+    imagePromptPrefix: 'fantasy character portrait of npcforge style.',
     negativePrompt: 'extra fingers, mutated hands, poorly drawn hands, poorly drawn face, blurry, bad anatomy, bad proportions, extra limbs, cloned face, glitchy, double torso, extra arms, extra hands, mangled fingers, missing lips, distorted face, extra legs, anime',
     imageModel: 'nMmyGaN2OdIpSe3ibzlfKEWtq',
 };
