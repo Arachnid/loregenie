@@ -50,7 +50,6 @@ const QueryPage: React.FC = () => {
         setError(result.error);
       }
       // Update the state with the model's response
-      console.log(result);
       setResponse(result);
     } catch (err) {
       // Update the state with the error
@@ -112,7 +111,7 @@ const QueryPage: React.FC = () => {
             />
 
             {!isSubmitting ?
-              <button type="submit" disabled={isSubmitting}>Roll</button>
+              <button type="submit" disabled={query.length == 0}>Roll</button>
             :
               <div className={styles.loading}>
                <h2>{loading[Math.floor(Math.random() * loading.length)]}</h2>
