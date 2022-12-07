@@ -56,6 +56,6 @@ Background: Greta was born into a family of nomads and spent much of her life wa
 
 User: `,
     imagePromptPrefix: 'd&d character portrait of npcforge style, headshot,',
-    negativePrompt: 'poorly drawn face, blurry, bad anatomy, bad proportions, cloned face, glitchy, missing lips, distorted face, badly cropped, truncated, anime',
+    negativePrompt: 'poorly drawn face, blurry, bad anatomy, bad proportions, cloned face, glitchy, missing lips, distorted face, badly cropped, truncated, anime, framed',
     imageModel: 'nMmyGaN2OdIpSe3ibzlfKEWtq',
 };
