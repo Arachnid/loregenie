@@ -75,7 +75,7 @@ const samples = [
 ];
 
 function randomSample() {
-  return samples[Math.floor(Math.random() * adjectives.length)];
+  return samples[Math.floor(Math.random() * samples.length)];
 }
 
 const loading = [
