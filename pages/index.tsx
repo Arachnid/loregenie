@@ -20,11 +20,74 @@ interface QueryResponse {
   image: string|null;
 }
 
+const adjectives: Array<string> = [
+  'fierce',
+  'wise',
+  'strong',
+  'clever',
+  'mischievous',
+  'vengeful',
+  'charming',
+  'brave',
+  'greedy',
+  'wise',
+  'strong',
+  'charismatic',
+  'powerful',
+  'mischievous',
+  'strong',
+  'wise',
+  'powerful',
+  'lazy',
+  'greedy',
+  'grumpy',
+];
+
+const professions: Array<string> = [
+    'fighter',
+    'wizard',
+    'barbarian',
+    'rogue',
+    'bard',
+    'warlock',
+    'diplomat',
+    'paladin',
+    'merchant',
+    'scholar',
+    'soldier',
+    'leader',
+    'sorcerer',
+    'prankster',
+    'bodyguard',
+    'monk',
+    'mage',
+    'scamp',
+    'layabout',
+    'innkeeper',
+    'villager',
+    'smith',
+];
+
+function randomSample() {
+  return `${adjectives[Math.floor(Math.random() * adjectives.length)]} ${professions[Math.floor(Math.random() * professions.length)]}`;
+}
+
+const loading: Array<string> = [
+  'Attaching arms, rolling for strength...',
+  'Adding legs, rolling for speed...',
+  'Installing heart, hold on a sec...',
+  'Attaching ears, rolling for perception...',
+  'Installing brain, please wait...',
+  'Adding mouth, rolling for charm...',
+  'Attaching eyes, rolling for insight...'
+]
+
 const QueryPage: React.FC = () => {
   // State to store the user's query, the response from the OpenAI model, and any errors
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<QueryResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [sample, setSample] = useState(randomSample);
 
   // State to keep track of whether the form is being submitted
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,6 +114,7 @@ const QueryPage: React.FC = () => {
       }
       // Update the state with the model's response
       setResponse(result);
+      setSample(randomSample());
     } catch (err) {
       // Update the state with the error
       setError((err as object).toString());
@@ -59,36 +123,6 @@ const QueryPage: React.FC = () => {
     // Set the isSubmitting state to false to hide the loading indicator
     setIsSubmitting(false);
   };
-
-  const samples: Array<string> = [
-    'fierce fighter',
-    'wise wizard',
-    'strong barbarian',
-    'clever rogue',
-    'mischievous bard',
-    'vengeful warlock',
-    'charming diplomat',
-    'brave paladin',
-    'greedy merchant',
-    'wise scholar',
-    'strong soldier',
-    'charismatic leader',
-    'powerful sorcerer',
-    'mischievous prankster',
-    'strong bodyguard',
-    'wise monk',
-    'powerful mage'
-  ]
-
-  const loading: Array<string> = [
-    'Attaching arms, rolling for strength...',
-    'Adding legs, rolling for speed...',
-    'Installing heart, hold on a sec...',
-    'Attaching ears, rolling for perception...',
-    'Installing brain, please wait...',
-    'Adding mouth, rolling for charm...',
-    'Attaching eyes, rolling for insight...'
-  ]
 
   return (
     <>
@@ -99,7 +133,10 @@ const QueryPage: React.FC = () => {
 
       <div className={styles.form}>
           <h1>Lore Genie</h1>
-          <p>Enter a short character concept below to generate a unique NPC.<br />For example, try creating a {samples[Math.floor(Math.random() * samples.length)]}.</p>
+          <p>
+            Enter a short character concept below to generate a unique NPC.
+            <br />
+            For example, try creating a {sample}.</p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="query-input" hidden>Enter your idea</label>
             <input
@@ -122,7 +159,7 @@ const QueryPage: React.FC = () => {
         </div>
         
         <div className={styles.response}>
-          {isSubmitting || response?.image && response?.data && <Image src={response.image} className={styles.avatar} alt={response.data['Physical description']}/>}
+          {isSubmitting || response?.image && response?.data && <Image src={response.image} className={styles.avatar} alt={response.data['Physical description']} width="256" height="256" />}
           {isSubmitting || response?.data && <div className={styles.container}>
             <h1 className={styles.name}>{response.data['Name']}</h1>
             <p>{response.data['Gender']} {response.data['Race']}, {response.data['Alignment']}</p>
