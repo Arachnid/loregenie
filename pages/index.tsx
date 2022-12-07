@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useInterval } from 'usehooks-ts';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
@@ -88,6 +89,9 @@ const QueryPage: React.FC = () => {
   const [response, setResponse] = useState<QueryResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [sample, setSample] = useState(randomSample);
+  const [loadingMessage, setLoadingMessage] = useState<string>("");
+
+  useInterval(() => setLoadingMessage(loading[Math.floor(Math.random() * loading.length)]), 5000);
 
   // State to keep track of whether the form is being submitted
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -151,7 +155,7 @@ const QueryPage: React.FC = () => {
               <button type="submit" disabled={query.length == 0}>Roll</button>
             :
               <div className={styles.loading}>
-               <h2>{loading[Math.floor(Math.random() * loading.length)]}</h2>
+               <h2>{loadingMessage}</h2>
               </div>
             }
 
