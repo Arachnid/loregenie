@@ -1,11 +1,12 @@
 import {Configuration, OpenAIApi} from 'openai';
 import { NextApiRequest, NextApiResponse } from 'next';
+import db from '../../utils/db';
 import config from '../../config';
 
-const configuration = new Configuration({
+const openaiConfig = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAIApi(openaiConfig);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Get the user's query from the request
@@ -24,17 +25,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.json({error: 'No data returned'});
     return;
   }
-  const rows: Array<[string, string]> = text.trim().split('\n').map((line) => {
+  const npc = Object.fromEntries(text.trim().split('\n').map((line) => {
     const idx = line.indexOf(':');
     return [line.slice(0, idx), line.slice(idx + 1)];
-  });
-  const description = rows.find(([k, v]) => k == 'Physical description')?.[1];
+  }));
   let image: string|null = null;
-  if(description) {
+  if(npc['Physical description']) {
     const apiRequest = {
       key: process.env.SDAPI_API_KEY,
       model_id: config.imageModel,
-      prompt: config.imagePromptPrefix + ' ' + description,
+      prompt: config.imagePromptPrefix + ' ' + npc['Physical description'],
       negative_prompt: config.negativePrompt,
       width: "512",
       height: "512",
@@ -45,7 +45,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       webhook: null,
       track_id: null,
     };
-    console.log(apiRequest);
     const imageQuery = await fetch(
       "https://stablediffusionapi.com/api/v3/dreambooth",
       {
@@ -59,8 +58,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const imageResult = await imageQuery.json();
     image = imageResult.output[0] as string;
   }
+
+  await db.collection('npcs').add({
+    prompt: req.body.query,
+    created: new Date().toISOString(),
+    image,
+    ...npc
+  });
+
   // Return the model's response
-  res.json({data: Object.fromEntries(rows), image});
+  res.json({data: npc, image});
 };
 
 export default handler;

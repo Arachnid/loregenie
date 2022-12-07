@@ -14,6 +14,7 @@
     "@types/react-dom": "18.0.9",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
+    "firebase-admin": "^11.3.0",
     "next": "13.0.6",
     "openai": "^3.1.0",
     "react": "18.2.0",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInterval } from 'usehooks-ts';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -101,9 +101,10 @@ const QueryPage: React.FC = () => {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<QueryResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [sample, setSample] = useState(randomSample);
-  const [loadingMessage, setLoadingMessage] = useState<string>("");
+  const [sample, setSample] = useState("");
+  const [loadingMessage, setLoadingMessage] = useState("");
 
+  useEffect(() => setSample(randomSample()), []);
   useInterval(() => setLoadingMessage(loading[Math.floor(Math.random() * loading.length)]), 5000);
 
   // State to keep track of whether the form is being submitted
