@@ -36,8 +36,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       model_id: config.imageModel,
       prompt: config.imagePromptPrefix + ' ' + description,
       negative_prompt: config.negativePrompt,
-      width: "256",
-      height: "256",
+      width: "512",
+      height: "512",
       samples: "1",
       num_inference_steps: "30",
       seed: null,
@@ -45,6 +45,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       webhook: null,
       track_id: null,
     };
+    console.log(apiRequest);
     const imageQuery = await fetch(
       "https://stablediffusionapi.com/api/v3/dreambooth",
       {
