@@ -11,16 +11,18 @@ const openai = new OpenAIApi(openaiConfig);
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Get the user's query from the request
   const query = config.prompt + req.body.query + "\n";
+  console.log(query);
   // Send the query to the OpenAI model
   const result = await openai.createCompletion(
     {
       prompt: query,
       model: config.model,
-      max_tokens: 2048,
+      max_tokens: 512,
       temperature: 0.7,
     }
   );
   const text = result.data.choices[0].text;
+  console.log(text);
   if(!text) {
     res.json({error: 'No data returned'});
     return;
