@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const result = await openai.createCompletion(
     {
       prompt: query,
-      model: "text-davinci-003",
+      model: config.model,
       max_tokens: 2048,
       temperature: 0.7,
     }
@@ -35,7 +35,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       key: process.env.SDAPI_API_KEY,
       model_id: config.imageModel,
       prompt: config.imagePromptPrefix + ' ' + npc['Physical description'],
-      negative_prompt: config.negativePrompt,
+      negative_prompt: config.negativeImagePrompt,
       width: "512",
       height: "512",
       samples: "1",
