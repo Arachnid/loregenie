@@ -73,15 +73,28 @@ function randomSample() {
   return `${adjectives[Math.floor(Math.random() * adjectives.length)]} ${professions[Math.floor(Math.random() * professions.length)]}`;
 }
 
-const loading: Array<string> = [
-  'Attaching arms, rolling for strength...',
-  'Adding legs, rolling for speed...',
-  'Installing heart, hold on a sec...',
-  'Attaching ears, rolling for perception...',
-  'Installing brain, please wait...',
-  'Adding mouth, rolling for charm...',
-  'Attaching eyes, rolling for insight...'
-]
+const loading = [
+  "Simulating life story...",
+  "Generating backstory...",
+  "Crafting personality traits...",
+  "Determining motivations...",
+  "Calculating daily routine...",
+  "Programming interactions...",
+  "Simulating emotions...",
+  "Generating goals and aspirations...",
+  "Crafting appearance...",
+  "Loading catchphrases...",
+  "Simulating first love...",
+  "Generating an epic battle...",
+  "Crafting the perfect heist...",
+  "Determining the outcome of a high-stakes game of chance...",
+  "Calculating reaction to the discovery of a long-lost relative...",
+  "Programming response to a major betrayal...",
+  "Simulating a life-changing decision...",
+  "Generating a triumphant moment...",
+  "Crafting a heartwarming reunion...",
+  "Loading a devastating loss...",
+];
 
 const QueryPage: React.FC = () => {
   // State to store the user's query, the response from the OpenAI model, and any errors
