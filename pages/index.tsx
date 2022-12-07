@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useInterval } from 'usehooks-ts';
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 interface QueryResponse {
   error?: string;
+  id: string;
   data?: {
     Name: string;
     Gender: string;
@@ -182,7 +182,7 @@ const QueryPage: React.FC = () => {
         </div>
         
         <div className={styles.response}>
-          {isSubmitting || response?.image && response?.data && <Image src={response.image} className={styles.avatar} alt={response.data['Physical description']} width="256" height="256" />}
+          {isSubmitting || response?.data && <img src={`/api/npc/${response.id}/image.png`} className={styles.avatar} alt={response.data['Physical description']} width="256" height="256" />}
           {isSubmitting || response?.data && <div className={styles.container}>
             <h1 className={styles.name}>{response.data['Name']}</h1>
             <p>{response.data['Gender']} {response.data['Race']}, {response.data['Alignment']}</p>

@@ -36,6 +36,7 @@
   width: 16rem;
   margin-bottom: -1.5rem;
   z-index: 1;
+  background-image: url("../public/placeholder.png");
 }
 
 .response .container {

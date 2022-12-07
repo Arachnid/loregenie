@@ -31,7 +31,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const idx = line.indexOf(':');
     return [line.slice(0, idx), line.slice(idx + 1).trim()];
   }));
-  let image: string|null = null;
+
+  const doc = await db.collection('npcs').add({
+    prompt: req.body.query,
+    created: new Date().toISOString(),
+    ...npc
+  });
+
+  // Return the model's response
+  res.json({id: doc.id, data: npc});
+  res.end();
+
   if(npc['Physical description']) {
     const apiRequest = {
       key: process.env.SDAPI_API_KEY,
@@ -47,6 +57,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       webhook: null,
       track_id: null,
     };
+
     const imageQuery = await fetch(
       "https://stablediffusionapi.com/api/v3/dreambooth",
       {
@@ -58,18 +69,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     );
     const imageResult = await imageQuery.json();
-    image = imageResult.output[0] as string;
+    const image = imageResult.output[0] as string;
+
+    await doc.update({image});
   }
-
-  await db.collection('npcs').add({
-    prompt: req.body.query,
-    created: new Date().toISOString(),
-    image,
-    ...npc
-  });
-
-  // Return the model's response
-  res.json({data: npc, image});
 };
 
 export default handler;
