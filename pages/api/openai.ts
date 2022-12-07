@@ -27,7 +27,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const npc = Object.fromEntries(text.trim().split('\n').map((line) => {
     const idx = line.indexOf(':');
-    return [line.slice(0, idx), line.slice(idx + 1)];
+    return [line.slice(0, idx), line.slice(idx + 1).trim()];
   }));
   let image: string|null = null;
   if(npc['Physical description']) {
