@@ -34,7 +34,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const doc = await db.collection('npcs').add({
     prompt: req.body.query,
-    created: new Date().toISOString(),
     ...npc
   });
 
