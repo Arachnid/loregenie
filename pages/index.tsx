@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 
 interface QueryResponse {
   error?: string;
@@ -37,6 +38,7 @@ const QueryPage: React.FC = () => {
         setError(result.error);
       }
       // Update the state with the model's response
+      console.log(result);
       setResponse(result);
     } catch (err) {
       // Update the state with the error
@@ -47,29 +49,81 @@ const QueryPage: React.FC = () => {
     setIsSubmitting(false);
   };
 
+  const samples: Array<string> = [
+    'fierce fighter',
+    'wise wizard',
+    'strong barbarian',
+    'clever rogue',
+    'mischievous bard',
+    'vengeful warlock',
+    'charming diplomat',
+    'brave paladin',
+    'greedy merchant',
+    'wise scholar',
+    'strong soldier',
+    'charismatic leader',
+    'powerful sorcerer',
+    'mischievous prankster',
+    'strong bodyguard',
+    'wise monk',
+    'powerful mage'
+  ]
+
+  const loading: Array<string> = [
+    'Attaching arms, rolling for strength...',
+    'Adding legs, rolling for speed...',
+    'Installing heart, hold on a sec...',
+    'Attaching ears, rolling for perception...',
+    'Installing brain, please wait...',
+    'Adding mouth, rolling for charm...',
+    'Attaching eyes, rolling for insight...'
+  ]
+
   return (
     <>
       <Head>
-        <title>NPC Forge</title>
+        <title>Lore Genie</title>
       </Head>
-      <main>
-        <h1>NPC Forge</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="query-input">Concept:</label>
-          <input
-            id="query-input"
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Submit"}
-          </button>
-        </form>
-        {response?.data && <table>
-          {response.data.map(([k, v]) => <tr key={k}><th>{k}</th><td>{v}</td></tr>)}
-        </table>}
-        {response?.image && <img src={response.image}/>}
+      <main className={styles.main}>
+
+      <div className={styles.form}>
+          <h1>Lore Genie</h1>
+          <p>Enter a short character concept below to generate a unique NPC.<br />For example, try creating a {samples[Math.floor(Math.random() * samples.length)]}.</p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="query-input" hidden>Enter your idea</label>
+            <input
+              id="query-input"
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              disabled={isSubmitting}
+            />
+
+            {!isSubmitting ?
+              <button type="submit" disabled={isSubmitting}>Roll</button>
+            :
+              <div className={styles.loading}>
+               <h2>{loading[Math.floor(Math.random() * loading.length)]}</h2>
+              </div>
+            }
+
+          </form>
+        </div>
+        
+        <div className={styles.response}>
+          {isSubmitting || response?.image && <img src={response.image} className={styles.avatar}/>}
+          {isSubmitting || response?.data && <div className={styles.container}>
+            <h1 className={styles.name}>{response.data['Name']}</h1>
+            <p>{response.data['Gender']} {response.data['Race']}, {response.data['Alignment']}</p>
+            <p>{response.data['Age']} year old {response.data['Profession']}</p>
+            <p>{response.data['Personality']}</p>
+            <hr className={styles.divider} />
+            <p>{response.data['Background']}</p>
+            <p>{response.data['Physical description']}</p>
+            <p>{response.data['Speaking style']}</p>
+          </div>}
+        </div>
+  
         {error && <p>Error: {error}</p>}
       </main>
     </>
