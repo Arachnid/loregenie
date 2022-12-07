@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 interface QueryResponse {
   error?: string;
-  data?: Array<[string, string]>;
+  data?: {
+    Name: string;
+    Gender: string;
+    Race: string;
+    Alignment: string;
+    Age: string;
+    Profession: string;
+    Personality: string;
+    Background: string;
+    "Physical description": string;
+    "Speaking style": string;
+  }
   image: string|null;
 }
 
@@ -111,7 +123,7 @@ const QueryPage: React.FC = () => {
         </div>
         
         <div className={styles.response}>
-          {isSubmitting || response?.image && <img src={response.image} className={styles.avatar}/>}
+          {isSubmitting || response?.image && response?.data && <Image src={response.image} className={styles.avatar} alt={response.data['Physical description']}/>}
           {isSubmitting || response?.data && <div className={styles.container}>
             <h1 className={styles.name}>{response.data['Name']}</h1>
             <p>{response.data['Gender']} {response.data['Race']}, {response.data['Alignment']}</p>
