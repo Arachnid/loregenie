@@ -59,7 +59,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     image = imageResult.output[0] as string;
   }
   // Return the model's response
-  res.json({data: rows, image});
+  res.json({data: Object.fromEntries(rows), image});
 };
 
 export default handler;
