@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+import styles from '../styles/NPC.module.css';
 import { FaLink, FaTwitter } from 'react-icons/fa';
 import config from '../config';
 
@@ -20,7 +20,7 @@ export interface NPC {
 function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
   const absoluteUrl = `${config.baseUrl}/npc/${id}`;
   return <>
-    <div className={styles.response}>
+    <div className={styles.npc}>
       <div className={styles.container}>
         <img src={`${npc.Image}`} className={styles.avatar} alt={npc['Physical description']} width="256" height="256" />
         <h1 className={styles.name}>{npc.Name}</h1>

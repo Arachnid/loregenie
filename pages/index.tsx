@@ -4,6 +4,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import config from '../config';
 import NPCComponent, { NPC } from '../components/NPCComponent';
+import FooterComponent from '../components/FooterComponent';
 
 interface QueryResponse {
   error?: string;
@@ -69,14 +70,16 @@ const QueryPage: React.FC = () => {
       <Head>
         <title>Lore Genie</title>
       </Head>
-      <main className={styles.main}>
 
+      <main className={styles.main}>
+        
         <div className={styles.start}>
-          <h1>Lore Genie</h1>
           <p>
             Enter a short character concept below to generate a unique NPC.
             <br />
-            For example, try creating {sample}.</p>
+            For example, try creating {sample}.
+          </p>
+
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="query-input" hidden>Enter your idea</label>
             <input
@@ -86,26 +89,20 @@ const QueryPage: React.FC = () => {
               onChange={(e) => setQuery(e.target.value)}
               disabled={isSubmitting}
             />
-            <br />
-            <button type="submit" disabled={query.length == 0 || isSubmitting}>Roll</button>
+
+            {isSubmitting ?
+              <div className={styles.loading}>
+                <p>{loadingMessage}</p>
+              </div>
+            :
+              <button type="submit" disabled={query.length == 0}>Roll</button>
+            }
           </form>
         </div>
-
-        {isSubmitting && <div className={styles.loading}>
-          <h2>{loadingMessage}</h2>
-        </div>}
         
         {isSubmitting || response?.data && <NPCComponent npc={response.data} id={response.id} />}
   
         {error && <p>Error: {error}</p>}
-
-        <div className={styles.footer}>
-          <p>
-            <a href='https://twitter.com/lore_genie' target='_blank'>@lore_genie</a><br />
-            Footer here
-          </p>
-        </div>
-
       </main>
     </>
   );

@@ -1,0 +1,49 @@
+.npc {
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.npc .avatar {
+  border-radius: 50%;
+  margin-top: -4rem;
+  z-index: 1;
+  background-image: url("../public/placeholder.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.npc .container {
+  padding: 1.5rem;
+  max-width: 40rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: .5rem;
+}
+
+.container .name {
+  font-size: 2.5rem;
+  color: #E15736;
+  margin-bottom: 0;
+}
+
+.container .italic {
+  font-style: italic;
+}
+
+.container .divider {
+  border-color: #E15736;
+  margin: 2rem;
+}
+
+.icons {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+.icons a {
+  padding: 0 1rem;
+}
+
+.icons a:hover {
+  color: #376277;
+}
