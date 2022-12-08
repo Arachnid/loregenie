@@ -69,6 +69,12 @@ const QueryPage: React.FC = () => {
     <>
       <Head>
         <title>Lore Genie</title>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@lore_genie" />
+        <meta property="og:url" content={config.baseUrl} />
+        <meta property="og:title" content="Lore Genie" />
+        <meta property="og:description" content="Lore Genie is an AI-powered generator for D&D and other fantasy role playing games. Make original NPCs with just a short prompt." />
+        <meta property="og:image" content="/genie.jpg" />
       </Head>
 
       <main className={styles.main}>
