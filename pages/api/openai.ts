@@ -38,7 +38,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   // Return the model's response
-  res.json({id: doc.id, data: npc});
+  res.json({id: doc.id, data: {Image: `/api/npc/${doc.id}/image.png`, ...npc}});
   res.end();
 
   if(npc['Headshot']) {
