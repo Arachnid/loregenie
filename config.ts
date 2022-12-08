@@ -17,50 +17,50 @@ Personality: Isla is kind and wise, her years of travel and experience giving he
 Speaking style: Isla speaks in a gentle, soothing voice with a light, melodic lilt. She often speaks in rhyme or meter and her words are often full of metaphor and allegory. Her storytelling is captivating, often leaving her audience spellbound and enthralled.
 Background: Isla was born in the elven city of Moonwood to a human father and an elven mother. She was raised in both cultures and developed a deep love for music and storytelling. She left home at the age of 17 and began travelling around the world, collecting stories and learning new songs. She has now mastered many instruments and has been a professional bard for over sixty years, her repertoire of stories and songs extending far and wide.
 
-User: A shady street rat
+User: A hardworking blacksmith
 
-Name: Pike Riverstone
-Race: Halfling
-Gender: Male
-Age: 23
-Profession: Street Rat
-Alignment: Chaotic Evil
-Summary: Pike is a young, stocky, halfling street rat who is always on the lookout for a good deal.
-Physical description: A short, stocky male halfling with a shock of wild, sandy-brown hair. His clothing is tattered and full of pockets, and he has a large, messy scar running down the side of his face. He carries a large leather satchel slung across his back and his hands are always moving, as if he is searching for something.
-Headshot: short stocky male halfling, 23 years old, wild sandy-brown hair, sly look, tattered clothing, large messy scar down the side of his face
-Personality: Pike is a sly and opportunistic halfling. He takes what he needs without asking and has an innate ability to sniff out a good deal. He has a quick temper and isn't afraid to use force if the situation calls for it. He enjoys gambling and will take any challenge that comes his way. He is streetwise and knows all the back alleys and shortcuts in town, and can usually be found lurking around in the shadows.
-Speaking style: Pike speaks with a gruff, gravelly voice and has a tendency to pepper his speech with a variety of colorful slurs. His words come out in short, clipped phrases and he often uses slang terms to convey his meaning. He has a habit of pressing his finger to the side of his nose when speaking, as if he is trying to make sure no one hears him.
-Background: Pike grew up on the streets of a large city and quickly learned how to adapt and survive in the harsh environment. He quickly developed a network of contacts and began to use his knowledge and connections to acquire wealth. He has now become a notorious figure in the criminal underworld, known for his quick reflexes and sharp wit. He has been involved in countless shady deals, but always manages to come out on top.
-
-User: A mysterious sea-elf sorcerer
-
-Name: Viorel Nethertide
-Race: Sea Elf
-Gender: Male
-Age: 78
-Profession: Sorcerer
-Alignment: Lawful Neutral
-Summary: Viorel is a tall, slim, sea elf sorcerer who lives next to the sea and serves as its guardian.
-Physical description: A tall, slim male sea-elf with pale skin and long, silver hair that reaches down to his waist. His eyes are a deep blue and he often wears a hooded cloak that hides his face. His right hand is missing, replaced with a strange, crystalline limb that glitters in the light.
-Headshot: slim male sea-elf, 78 years old, pale skin, long silver hair, deep blue eyes, serious look, hooded cloak that hides his face
-Personality: Viorel is a mysterious figure and speaks rarely, preferring to stay in the shadows and observe. He is stoic and wise and his voice carries a strange, almost hypnotic quality. He has a great understanding of magic and believes in its power to shape the world. He is also deeply committed to his principles and wont be swayed by arguments of convenience.
-Speaking style: Viorel speaks slowly and deliberately, choosing his words carefully so as to not reveal too much. His voice usually has a soothing quality and his accent is strange, almost like the sound of the ocean. He often mixes elvish words with the common tongue and speaks in riddles and metaphors.
-Background: Viorel was born in a small village on the coast of the Sea of Sorrows. He left home at a young age, driven by a desire to explore the world and learn its secrets. As he travelled, he encountered many teachings and eventually came to master the powers of sorcery. He has now returned to his homeland and serves as a guardian of the sea and protector of those who live there. His age and experience has granted him great wisdom and power, and his mysterious presence can often be felt around the coastal towns.
-
-User: A grumpy homeless old woman
-
-Name: Greta Crowsybrook
+Name: Arminius Graven
 Race: Human
+Gender: Male
+Age: 55
+Profession: Blacksmith
+Alignment: Neutral Good
+Summary: An aging blacksmith with a gruff, no-nonsense attitude.
+Physical description: Arminius has a broad muscular frame and a face that is weathered from years of hard work. His hair is grey and thinning, and his nose is large and crooked, the result of a long-forgotten bar fight. He wears a leather apron over a simple tunic, and his hands are calloused and covered in soot.
+Headshot: Middle-aged male human, 55 years old, craggy weather-beaten face, large crooked nose, grey hair, leather apron
+Personality: Arminius is a gruff and no-nonsense man who speaks his mind and holds a firm sense of morality. He is loyal to those he trusts, and is willing to help out any in need, seeing it as his duty to use his skills to help his community. He is a bit of a traditionalist, refusing to use any of the newer technologies that have become popular in the last few decades.
+Speaking style: Arminius speaks with a gruff, deep voice that is often tinged with a slight accent from his homeland. He speaks slowly and deliberately, carefully weighing his words before speaking them. He often uses old-fashioned phrases, and has a tendency to mumble when he is deep in thought.
+Background: Arminius was born and raised in a small village on the outskirts of a large city. He trained as a blacksmith under his father's tutelage, and eventually inherited the family business when his father passed away. He has been a successful blacksmith for many years, and has earned a reputation for being a hardworking and honest man. He is very loyal to his community, and can often be found helping out his neighbors with whatever they need. He married late in life, and has two grown children who have left the village to pursue their own lives.
+
+User: An adventurous child
+
+Name: Emryl
+Race: Half-elf
 Gender: Female
-Age: 87
-Profession: Homeless Wanderer
-Alignment: Neutral Evil
-Summary: Greta is a frail, elderly, homeless human wanderer who lives off the land and refuses help from anyone.
-Physical description: A small, frail-looking elderly human female with a haggard appearance and a permanent scowl on her face. Her clothes are ragged and torn, and her long, grey hair is festooned with twigs and leaves.
-Headshot: frail-looking elderly human female, 87 years old, haggard appearance, permanent scowl, ragged and torn clothes, long grey hair festooned with twigs and leaves
-Personality: Greta is bitter and vengeful, with a deep mistrust of anyone she doesn't know. She is fiercely independent and refuses help or charity, preferring to find her own solutions to her problems. She is cantankerous and speaks her mind without fear, and isn't afraid to use violence if necessary. She has an eye for spotting liars and can tell when someone is trying to deceive her.
-Speaking style: Greta speaks in a gruff, raspy voice and has a tendency to mumble and grumble under her breath. She often speaks in riddles and half-utterances, her words sounding more like warnings than advice. She has a habit of yelling and cackling when she gets angry, often scaring off anyone who might act as a voice of reason.
-Background: Greta was born into a family of nomads and spent much of her life wandering the countryside. As she got older, her family started to drift apart, and Greta eventually found herself alone and homeless. She now wanders the land, taking odd jobs when she can and living off the land when she can't. Despite her bitter exterior, Greta has a deep knowledge and understanding of the land and it's secrets, making her a valuable ally when facing dark and dangerous foes.
+Age: 10
+Profession: Child
+Alignment: Neutral Good
+Summary: Emryl is a curious and courageous child with bright green eyes and unruly auburn hair.
+Physical Description: Emryl stands at 4 feet tall with a small frame and delicate features. Her skin is fair and her eyes are a brilliant shade of green. Her unruly auburn hair is often found in a wild tangle, and she wears simple, comfortable clothing. She is always seen with a smile on her face and a twinkle in her eye.
+Headshot: Young female half-elf, 10 years old,  tousled auburn hair, fair skin, bright green eyes, mischievous smile
+Personality: Emryl is an adventurous and curious child with a courageous spirit. She loves to explore new places and meet new people, and she often jumps into situations without thinking them through. She is also fiercely loyal to her friends, and she will go to great lengths to protect them.
+Speaking style: Emryl speaks with a high-pitched, childlike voice and a slight lilt. She often speaks quickly, with a bubbly enthusiasm, and uses simple words and phrases. She loves to make jokes, and she often speaks in a sing-songy way.
+Background: Emryl is a half-elf from a small village in the forest. She loves to explore the area around her home and often goes on adventures with her friends. She is known for her bravery and courage, and she is always willing to stand up for what she believes in. She is also a gifted storyteller, and she loves to tell tales of her adventures.
+
+User: A grumpy homeless old man
+
+Name: Grumblebottom
+Race: Gnome
+Gender: Male
+Age: 457
+Profession: Homeless
+Alignment: Neutral
+Summary: A grumpy homeless gnome with a scruffy, disheveled appearance.
+Physical description: Grumblebottom is a small gnome, with a scruffy, disheveled appearance and an unkempt beard. He wears a threadbare brown cloak and seems to have an ever-present scowl on his face. His eyes are dull and listless, and his hands are calloused and rough.
+Headshot: Elderly male gnome, 457 years old, disheveled, scruffy, unkempt beard, scowling face, dull eyes.
+Personality: Grumblebottom is a grumpy, surly gnome who is far from friendly. He rarely speaks, and when he does, it's usually to grumble about something or another. He is distrustful of strangers and prefers to keep to himself, though he is known to be generous and helpful to those in need.
+Speaking style: Grumblebottom speaks in a low, gruff voice, with a heavy gnomish accent. His speech tends to be slow and drawn-out, and he has a habit of mumbling under his breath when he's not actually speaking.
+Background: Grumblebottom is a homeless gnome who has been wandering the land for many years. He has seen much in his travels, but keeps much of his past a secret. He was once an accomplished craftsman, but his fortunes have long since faded. He now wanders the land, living off the kindness of strangers and looking for a place he can call home.
 
 User: `,
     samples: [
