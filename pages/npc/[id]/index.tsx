@@ -4,6 +4,7 @@ import Head from 'next/head';
 import styles from '../../../styles/Home.module.css';
 import NPCComponent, { NPC } from '../../../components/NPCComponent';
 import db from '../../../utils/db';
+import config from '../../../config';
 
 export const getServerSideProps: GetServerSideProps<{ id: string, npc: NPC }> = async (context) => {
   const id = context.query.id as string;
@@ -32,7 +33,13 @@ export default function NPCPage({ id, npc }: InferGetServerSidePropsType<typeof 
   return (
     <>
       <Head>
-        <title>Lore Genie</title>
+        <title>{npc.Name} - Lore Genie</title>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@lore_genie" />
+        <meta property="og:url" content={`${config.baseUrl}/npc/${id}`} />
+        <meta property="og:title" content={npc.Name} />
+        <meta property="og:description" content={npc.Summary || npc.Personality} />
+        <meta property="og:image" content={npc.Image} />
       </Head>
       <h1><a href='/'>Lore Genie</a></h1>
       <main className={styles.main} style={{ marginTop: '-3.5rem' }}>
