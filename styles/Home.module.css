@@ -1,6 +1,6 @@
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
+  padding: 2vw;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -8,26 +8,73 @@
   align-items: center;
 }
 
-.form {
-  margin-bottom: 4rem;
+.logo {
+  width: 75%;
+  height: auto;
+}
+
+.start {
   max-width: 40rem;
+  width: 100%;
+  background-image: url("../public/genie.jpg");
+  background-size: auto 72%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  padding-bottom: 2rem;
+}
+
+.form {
+  width: 100%;
+  margin-top: 14em;
 }
 
 .form input {
-  padding: .75rem;
+  /* font-family: 'Cinzel Decorative', cursive; */
+  padding: 1rem;
   font-size: 1rem;
   display: block;
   width: 100%;
   border-radius: .5rem;
-  font-family: 'Cinzel Decorative', cursive;
   margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #376277;
+  height: 3.5rem;
+}
+
+.form input:focus {
+  background-color: white;
+}
+
+.form input:disabled {
+  background-color: white;
+  cursor: not-allowed;
 }
 
 .form button {
-  padding: .75rem 3rem;
+  padding: 1rem 3rem;
   font-size: 1rem;
   display: inline-block;
   border-radius: .5rem;
+  font-family: 'Cinzel Decorative', cursive;
+  background-color: #376277;
+  border: none;
+  color: white;
+  line-height: 18px;
+  min-width: 30%;
+}
+
+.loading {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border-radius: .5rem;
+  width: 100%;
+}
+
+.form button:disabled {
+  opacity: .9;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
 }
 
 .response .avatar {
