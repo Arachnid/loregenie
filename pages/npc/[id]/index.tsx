@@ -41,7 +41,7 @@ export default function NPCPage({ id, npc }: InferGetServerSidePropsType<typeof 
         <meta property="og:description" content={npc.Summary || npc.Personality} />
         <meta property="og:image" content={npc.Image} />
       </Head>
-      <h1>Lore Genie</h1>
+
       <main className={styles.main}>
         <NPCComponent npc={npc} id={id} />
       </main>

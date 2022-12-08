@@ -4,6 +4,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import config from '../config';
 import NPCComponent, { NPC } from '../components/NPCComponent';
+import FooterComponent from '../components/FooterComponent';
 
 interface QueryResponse {
   error?: string;
@@ -69,14 +70,16 @@ const QueryPage: React.FC = () => {
       <Head>
         <title>Lore Genie</title>
       </Head>
-      <main className={styles.main}>
 
-      <div className={styles.start}>
-          <h1>Lore Genie</h1>
+      <main className={styles.main}>
+        
+        <div className={styles.start}>
           <p>
             Enter a short character concept below to generate a unique NPC.
             <br />
-            For example, try creating {sample}.</p>
+            For example, try creating {sample}.
+          </p>
+
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="query-input" hidden>Enter your idea</label>
             <input
@@ -87,14 +90,13 @@ const QueryPage: React.FC = () => {
               disabled={isSubmitting}
             />
 
-            {!isSubmitting ?
-              <button type="submit" disabled={query.length == 0}>Roll</button>
-            :
+            {isSubmitting ?
               <div className={styles.loading}>
-               <h2>{loadingMessage}</h2>
+                <p>{loadingMessage}</p>
               </div>
+            :
+              <button type="submit" disabled={query.length == 0}>Roll</button>
             }
-
           </form>
         </div>
         
