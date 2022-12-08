@@ -1,11 +1,9 @@
 .main {
-  min-height: 100vh;
+  min-height: 100%;
   padding: 2vw;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .logo {
@@ -17,10 +15,11 @@
   max-width: 40rem;
   width: 100%;
   background-image: url("../public/genie.jpg");
-  background-size: auto 72%;
+  background-size: auto 68%;
   background-repeat: no-repeat;
   background-position: bottom center;
   padding-bottom: 2rem;
+  margin: auto;
 }
 
 .form {
@@ -32,8 +31,8 @@
   /* font-family: 'Cinzel Decorative', cursive; */
   padding: 1rem;
   font-size: 1rem;
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 70%;
   border-radius: .5rem;
   margin-bottom: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
@@ -64,11 +63,11 @@
 }
 
 .loading {
-  background-color: rgba(255, 255, 255, 0.75);
-  padding: 1rem 3rem;
+  padding: .5rem 3rem;
   font-size: 1rem;
-  border-radius: .5rem;
   width: 100%;
+  margin: 0 auto;
+  height: 4rem;
 }
 
 .form button:disabled {
@@ -77,27 +76,55 @@
   cursor: not-allowed;
 }
 
+.response {
+  margin: 5rem auto 1rem auto;
+}
+
 .response .avatar {
   border-radius: 50%;
   height: auto;
   width: 16rem;
-  margin-bottom: -1.5rem;
+  margin-top: -4rem;
   z-index: 1;
   background-image: url("../public/placeholder.png");
 }
 
 .response .container {
-  padding: 1rem;
+  padding: 1.5rem;
   max-width: 40rem;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
+  border-radius: .5rem;
 }
 
 .container .name {
   font-size: 2.5rem;
   color: #E15736;
+  margin-bottom: 0;
+}
+
+.container .italic {
+  font-style: italic;
 }
 
 .container .divider {
   border-color: #E15736;
+  margin: 2rem;
+}
+
+.icons {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+.icons a {
+  padding: 0 1rem;
+}
+
+.icons a:hover {
+  color: #376277;
+}
+
+.footer {
+  font-size: .8rem;
 }

@@ -71,7 +71,7 @@ const QueryPage: React.FC = () => {
       </Head>
       <main className={styles.main}>
 
-      <div className={styles.start}>
+        <div className={styles.start}>
           <h1>Lore Genie</h1>
           <p>
             Enter a short character concept below to generate a unique NPC.
@@ -86,21 +86,26 @@ const QueryPage: React.FC = () => {
               onChange={(e) => setQuery(e.target.value)}
               disabled={isSubmitting}
             />
-
-            {!isSubmitting ?
-              <button type="submit" disabled={query.length == 0}>Roll</button>
-            :
-              <div className={styles.loading}>
-               <h2>{loadingMessage}</h2>
-              </div>
-            }
-
+            <br />
+            <button type="submit" disabled={query.length == 0 || isSubmitting}>Roll</button>
           </form>
         </div>
+
+        {isSubmitting && <div className={styles.loading}>
+          <h2>{loadingMessage}</h2>
+        </div>}
         
         {isSubmitting || response?.data && <NPCComponent npc={response.data} id={response.id} />}
   
         {error && <p>Error: {error}</p>}
+
+        <div className={styles.footer}>
+          <p>
+            <a href='https://twitter.com/lore_genie' target='_blank'>@lore_genie</a><br />
+            Footer here
+          </p>
+        </div>
+
       </main>
     </>
   );

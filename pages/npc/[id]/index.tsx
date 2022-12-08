@@ -34,9 +34,16 @@ export default function NPCPage({ id, npc }: InferGetServerSidePropsType<typeof 
       <Head>
         <title>Lore Genie</title>
       </Head>
-      <h1>Lore Genie</h1>
-      <main className={styles.main}>
+      <h1><a href='/'>Lore Genie</a></h1>
+      <main className={styles.main} style={{ marginTop: '-3.5rem' }}>
         <NPCComponent npc={npc} id={id} />
+
+        <div className={styles.footer}>
+          <p>
+            <a href='https://twitter.com/lore_genie' target='_blank'>@lore_genie</a><br />
+            Footer here
+          </p>
+        </div>
       </main>
     </>
   );

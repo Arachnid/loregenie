@@ -20,21 +20,22 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
   const absoluteUrl = `${config.baseUrl}/npc/${id}`;
   return <>
     <div className={styles.response}>
-      <img src={`${npc.Image}`} className={styles.avatar} alt={npc['Physical description']} width="256" height="256" />
       <div className={styles.container}>
+        <img src={`${npc.Image}`} className={styles.avatar} alt={npc['Physical description']} width="256" height="256" />
         <h1 className={styles.name}>{npc.Name}</h1>
-        <p>{npc.Gender} {npc.Race}, {npc.Alignment}</p>
-        <p>{npc.Age} year old {npc.Profession}</p>
+        <p className={styles.italic}>{npc.Gender !== "N/A" && npc.Gender !== "None" ? npc.Gender + " " : ""}{npc.Race}, {npc.Alignment}<br />
+        {npc.Age}{/\d/.test(npc.Age) ?  " year old " : " "}{npc.Profession}</p>
         <p>{npc.Personality}</p>
         <hr className={styles.divider} />
         <p>{npc.Background}</p>
         <p>{npc['Physical description']}</p>
         <p>{npc['Speaking style']}</p>
+        <hr className={styles.divider} />
+        <div className={styles.icons}>
+          <a href={absoluteUrl}><FaLink /></a>
+          <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC created with @loregenie!`) + '&url=' + encodeURIComponent(absoluteUrl)}><FaTwitter /></a>
+        </div>
       </div>
-    </div>
-    <div>
-      <a href={absoluteUrl}><FaLink /></a>
-      <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC created with @loregenie!`) + '&url=' + encodeURIComponent(absoluteUrl)}><FaTwitter /></a>
     </div>
   </>;
 };
