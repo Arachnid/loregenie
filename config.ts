@@ -41,7 +41,7 @@ Age: 10
 Profession: Child
 Alignment: Neutral Good
 Summary: Emryl is a curious and courageous child with bright green eyes and unruly auburn hair.
-Physical Description: Emryl stands at 4 feet tall with a small frame and delicate features. Her skin is fair and her eyes are a brilliant shade of green. Her unruly auburn hair is often found in a wild tangle, and she wears simple, comfortable clothing. She is always seen with a smile on her face and a twinkle in her eye.
+Physical description: Emryl stands at 4 feet tall with a small frame and delicate features. Her skin is fair and her eyes are a brilliant shade of green. Her unruly auburn hair is often found in a wild tangle, and she wears simple, comfortable clothing. She is always seen with a smile on her face and a twinkle in her eye.
 Headshot: Young female half-elf, 10 years old,  tousled auburn hair, fair skin, bright green eyes, mischievous smile
 Personality: Emryl is an adventurous and curious child with a courageous spirit. She loves to explore new places and meet new people, and she often jumps into situations without thinking them through. She is also fiercely loyal to her friends, and she will go to great lengths to protect them.
 Speaking style: Emryl speaks with a high-pitched, childlike voice and a slight lilt. She often speaks quickly, with a bubbly enthusiasm, and uses simple words and phrases. She loves to make jokes, and she often speaks in a sing-songy way.
