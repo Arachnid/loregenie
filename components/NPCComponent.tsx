@@ -9,6 +9,7 @@ export interface NPC {
   Alignment: string;
   Age: string;
   Profession: string;
+  Summary: string;
   Personality: string;
   Background: string;
   "Physical description": string;

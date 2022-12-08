@@ -10,6 +10,7 @@ Gender: Female
 Age: 81
 Profession: Bard
 Alignment: Neutral Good
+Summary: Isla is a wise, elderly, half-elf bard who is always willing to listen and help.
 Physical description: An elderly female half-elf with long, silver hair and almond-shaped eyes. Her skin is wrinkled and her movements are slow, but her eyes still sparkle with life. She wears a tattered cloak and a simple, silver harp hangs from her belt. 
 Headshot: elderly female half-elf, 81 years old, long silver hair, almond-shaped eyes, smiling, wrinkled skin, sparkling eyes, tattered cloak
 Personality: Isla is kind and wise, her years of travel and experience giving her a deep understanding of the world around her. She is patient and always willing to listen without judgement. She has a great respect for music and loves to tell stories and share her knowledge with others. She can often be found in taverns, playing her harp and spinning tales for the locals.
@@ -24,6 +25,7 @@ Gender: Male
 Age: 23
 Profession: Street Rat
 Alignment: Chaotic Evil
+Summary: Pike is a young, stocky, halfling street rat who is always on the lookout for a good deal.
 Physical description: A short, stocky male halfling with a shock of wild, sandy-brown hair. His clothing is tattered and full of pockets, and he has a large, messy scar running down the side of his face. He carries a large leather satchel slung across his back and his hands are always moving, as if he is searching for something.
 Headshot: short stocky male halfling, 23 years old, wild sandy-brown hair, sly look, tattered clothing, large messy scar down the side of his face
 Personality: Pike is a sly and opportunistic halfling. He takes what he needs without asking and has an innate ability to sniff out a good deal. He has a quick temper and isn't afraid to use force if the situation calls for it. He enjoys gambling and will take any challenge that comes his way. He is streetwise and knows all the back alleys and shortcuts in town, and can usually be found lurking around in the shadows.
@@ -38,6 +40,7 @@ Gender: Male
 Age: 78
 Profession: Sorcerer
 Alignment: Lawful Neutral
+Summary: Viorel is a tall, slim, sea elf sorcerer who lives next to the sea and serves as its guardian.
 Physical description: A tall, slim male sea-elf with pale skin and long, silver hair that reaches down to his waist. His eyes are a deep blue and he often wears a hooded cloak that hides his face. His right hand is missing, replaced with a strange, crystalline limb that glitters in the light.
 Headshot: slim male sea-elf, 78 years old, pale skin, long silver hair, deep blue eyes, serious look, hooded cloak that hides his face
 Personality: Viorel is a mysterious figure and speaks rarely, preferring to stay in the shadows and observe. He is stoic and wise and his voice carries a strange, almost hypnotic quality. He has a great understanding of magic and believes in its power to shape the world. He is also deeply committed to his principles and wont be swayed by arguments of convenience.
@@ -52,6 +55,7 @@ Gender: Female
 Age: 87
 Profession: Homeless Wanderer
 Alignment: Neutral Evil
+Summary: Greta is a frail, elderly, homeless human wanderer who lives off the land and refuses help from anyone.
 Physical description: A small, frail-looking elderly human female with a haggard appearance and a permanent scowl on her face. Her clothes are ragged and torn, and her long, grey hair is festooned with twigs and leaves.
 Headshot: frail-looking elderly human female, 87 years old, haggard appearance, permanent scowl, ragged and torn clothes, long grey hair festooned with twigs and leaves
 Personality: Greta is bitter and vengeful, with a deep mistrust of anyone she doesn't know. She is fiercely independent and refuses help or charity, preferring to find her own solutions to her problems. She is cantankerous and speaks her mind without fear, and isn't afraid to use violence if necessary. She has an eye for spotting liars and can tell when someone is trying to deceive her.
