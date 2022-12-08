@@ -39,7 +39,7 @@ const QueryPage: React.FC = () => {
 
     // Send the user's query to the OpenAI model
     try {
-      const res = await fetch("/api/openai", {
+      const res = await fetch("/api/npc/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -23,7 +23,7 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
       <img src={`${npc.Image}`} className={styles.avatar} alt={npc['Physical description']} width="256" height="256" />
       <div className={styles.container}>
         <h1 className={styles.name}>{npc.Name}</h1>
-        <p>{npc.Gender} {npc.Race} {npc.Alignment}</p>
+        <p>{npc.Gender} {npc.Race}, {npc.Alignment}</p>
         <p>{npc.Age} year old {npc.Profession}</p>
         <p>{npc.Personality}</p>
         <hr className={styles.divider} />
@@ -34,7 +34,7 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
     </div>
     <div>
       <a href={absoluteUrl}><FaLink /></a>
-      <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC I created with @loregenie: ${absoluteUrl}`)}><FaTwitter /></a>
+      <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC created with @loregenie: ${absoluteUrl}`)}><FaTwitter /></a>
     </div>
   </>;
 };
