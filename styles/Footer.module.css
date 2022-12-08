@@ -1,5 +1,6 @@
 .footer {
     font-size: .8rem;
+    max-width: 40rem;
 }
 
 .footer a:hover {
