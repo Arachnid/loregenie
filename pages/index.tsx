@@ -71,13 +71,13 @@ const QueryPage: React.FC = () => {
       </Head>
       <main className={styles.main}>
 
-      <div className={styles.form}>
+      <div className={styles.start}>
           <h1>Lore Genie</h1>
           <p>
             Enter a short character concept below to generate a unique NPC.
             <br />
             For example, try creating {sample}.</p>
-          <form onSubmit={handleSubmit}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="query-input" hidden>Enter your idea</label>
             <input
               id="query-input"
