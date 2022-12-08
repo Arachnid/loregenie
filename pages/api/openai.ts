@@ -32,6 +32,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const doc = await db.collection('npcs').add({
     prompt: req.body.query,
+    model: config.model,
+    imageModel: config.imageModel,
     ...npc
   });
 
@@ -39,11 +41,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.json({id: doc.id, data: npc});
   res.end();
 
-  if(npc['Physical description']) {
+  if(npc['Headshot']) {
     const apiRequest = {
       key: process.env.SDAPI_API_KEY,
       model_id: config.imageModel,
-      prompt: config.imagePromptPrefix + ' ' + npc['Physical description'],
+      prompt: `${config.imagePromptPrefix}, ${npc['Headshot']}, ${config.imagePromptSuffix}`,
       negative_prompt: config.negativeImagePrompt,
       width: "512",
       height: "512",

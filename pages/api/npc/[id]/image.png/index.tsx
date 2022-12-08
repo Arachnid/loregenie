@@ -6,11 +6,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const docRef = db.doc(`npcs/${id}`);
     const doc = await docRef.get();
     const data = await new Promise<FirebaseFirestore.DocumentData|undefined>((resolve) => {
-        console.log("Waiting");
         const unsubscribe = docRef.onSnapshot((doc) => {
             const data = doc.data();
             if(data && data.image) {
-                console.log("Arrived!");
                 unsubscribe();
                 resolve(data);
             }
