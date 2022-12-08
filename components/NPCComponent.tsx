@@ -34,7 +34,7 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
     </div>
     <div>
       <a href={absoluteUrl}><FaLink /></a>
-      <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC created with @loregenie: ${absoluteUrl}`)}><FaTwitter /></a>
+      <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC created with @loregenie!`) + '&' + encodeURIComponent(absoluteUrl)}><FaTwitter /></a>
     </div>
   </>;
 };
