@@ -72,6 +72,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       await doc.update({image});
     }
   } catch(e: any) {
+    console.log(e.toString());
     if(!res.closed) {
       if(e instanceof Error) {
         res.status(500).json({error: e.message});
