@@ -50,14 +50,15 @@ const QueryPage: React.FC = () => {
       const result = await res.json() as QueryResponse;
       if(result.error) {
         setError(result.error);
+        setResponse(null);
+      } else {
+        // Update the state with the model's response
+        setResponse(result);
+        setError(null);
       }
-      // Update the state with the model's response
-      setResponse(result);
-      console.log(result.data);
-      setError(null);
-    } catch (err) {
+    } catch (err: any) {
       // Update the state with the error
-      setError((err as object).toString());
+      setError(err.toString());
     }
 
     setSample(randomSample());
