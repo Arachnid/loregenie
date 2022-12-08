@@ -98,7 +98,7 @@ const QueryPage: React.FC = () => {
           </form>
         </div>
         
-        {isSubmitting || response?.data && <NPCComponent npc={response.data} />}
+        {isSubmitting || response?.data && <NPCComponent npc={response.data} id={response.id} />}
   
         {error && <p>Error: {error}</p>}
       </main>

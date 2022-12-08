@@ -1,4 +1,6 @@
 import styles from '../styles/Home.module.css';
+import { FaLink, FaTwitter } from 'react-icons/fa';
+import config from '../config';
 
 export interface NPC {
   Name: string;
@@ -14,8 +16,9 @@ export interface NPC {
   Image: string;
 }
 
-function NPCComponent({ npc } : { npc: NPC }) {
-  return (
+function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
+  const absoluteUrl = `${config.baseUrl}/npc/${id}`;
+  return <>
     <div className={styles.response}>
       <img src={`${npc.Image}`} className={styles.avatar} alt={npc['Physical description']} width="256" height="256" />
       <div className={styles.container}>
@@ -29,7 +32,11 @@ function NPCComponent({ npc } : { npc: NPC }) {
         <p>{npc['Speaking style']}</p>
       </div>
     </div>
-  );
+    <div>
+      <a href={absoluteUrl}><FaLink /></a>
+      <a href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(`Check out this NPC I created with @loregenie: ${absoluteUrl}`)}><FaTwitter /></a>
+    </div>
+  </>;
 };
 
 export default NPCComponent;
