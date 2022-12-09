@@ -8,8 +8,10 @@ export interface NPC {
   Summary: string;
   Personality: string;
   Background: string;
-  "Physical description": string;
-  "Speaking style": string;
+  "Physical description"?: string;
+  "Physical Description"?: string;
+  "Speaking style"?: string;
+  "Speaking Style"?: string;
   Image: string;
   Headshot: string;
 }

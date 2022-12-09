@@ -15,8 +15,8 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
         <p>{npc.Personality}</p>
         <hr className={styles.divider} />
         <p>{npc.Background}</p>
-        <p>{npc['Physical description']}</p>
-        <p>{npc['Speaking style']}</p>
+        <p>{npc['Physical description'] || npc['Physical Description']}</p>
+        <p>{npc['Speaking style'] || npc['Speaking Style']}</p>
         <hr className={styles.divider} />
         <div className={styles.icons}>
           <a href={absoluteUrl}><FaLink /></a>
