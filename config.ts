@@ -142,5 +142,6 @@ User: `,
     negativeImagePrompt: 'truncated, poorly drawn, badly framed, cgi, photograph, photo, runes',
     model: 'text-davinci-003',
     imageModel: 'nMmyGaN2OdIpSe3ibzlfKEWtq',
-    baseUrl: 'https://loregenie.com'
+    baseUrl: 'https://loregenie.com',
+    gcsBucket: 'static.loregenie.com',
 };

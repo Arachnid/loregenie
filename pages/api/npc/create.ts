@@ -2,6 +2,8 @@ import {Configuration, OpenAIApi} from 'openai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import db from '../../../utils/db';
 import config from '../../../config';
+import { createHeadshot } from '../../../utils/images';
+import { NPC } from '../../../components/NPCComponent';
 
 const openaiConfig = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -29,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const npc = Object.fromEntries(text.trim().split('\n').map((line) => {
       const idx = line.indexOf(':');
       return [line.slice(0, idx), line.slice(idx + 1).trim()];
-    }));
+    })) as unknown as NPC;
 
     const doc = await db.collection('npcs').add({
       prompt: req.body.query,
@@ -37,39 +39,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       ...npc
     });
 
+    npc.Image = `/api/npc/${doc.id}/image.png`;
+
     // Return the model's response
-    res.json({id: doc.id, data: {Image: `/api/npc/${doc.id}/image.png`, ...npc}});
+    res.json({id: doc.id, data: npc});
     res.end();
 
     if(npc['Headshot']) {
-      const apiRequest = {
-        key: process.env.SDAPI_API_KEY,
-        prompt: `${config.imagePromptPrefix}, ${npc['Headshot']}, ${config.imagePromptSuffix}`,
-        negative_prompt: config.negativeImagePrompt,
-        width: "512",
-        height: "512",
-        samples: "1",
-        num_inference_steps: "30",
-        seed: null,
-        guidance_scale: 7.5,
-        webhook: null,
-        track_id: null,
-      };
-
-      const imageQuery = await fetch(
-        "https://stablediffusionapi.com/api/v3/text2img",
-        {
-          method: 'POST',
-          body: JSON.stringify(apiRequest),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      const imageResult = await imageQuery.json();
-      const image = imageResult.output[0] as string;
-
-      await doc.update({image});
+      const image = await createHeadshot(doc.id, npc);
+      if(image) {
+        await doc.update({image});
+      }
     }
   } catch(e: any) {
     console.log(e.toString());

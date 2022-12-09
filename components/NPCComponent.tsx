@@ -15,6 +15,7 @@ export interface NPC {
   "Physical description": string;
   "Speaking style": string;
   Image: string;
+  Headshot: string;
 }
 
 function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
