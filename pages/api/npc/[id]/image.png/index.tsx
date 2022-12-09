@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const data = await new Promise<FirebaseFirestore.DocumentData|undefined>((resolve) => {
         const unsubscribe = docRef.onSnapshot((doc) => {
             const data = doc.data();
-            if(data && data.image) {
+            if(data && data.Image) {
                 unsubscribe();
                 resolve(data);
             }
@@ -19,7 +19,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(404).send("Not found");
         return;
     }
-    res.redirect(data?.image).end();
+    res.redirect(data?.Image).end();
 };
 
 export default handler;

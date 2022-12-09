@@ -1,22 +1,7 @@
 import styles from '../styles/NPC.module.css';
 import { FaLink, FaTwitter } from 'react-icons/fa';
 import config from '../config';
-
-export interface NPC {
-  Name: string;
-  Gender: string;
-  Race: string;
-  Alignment: string;
-  Age: string;
-  Profession: string;
-  Summary: string;
-  Personality: string;
-  Background: string;
-  "Physical description": string;
-  "Speaking style": string;
-  Image: string;
-  Headshot: string;
-}
+import { NPC } from '../utils/NPC';
 
 function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
   const absoluteUrl = `${config.baseUrl}/npc/${id}`;

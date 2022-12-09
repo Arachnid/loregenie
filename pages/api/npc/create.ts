@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import db from '../../../utils/db';
 import config from '../../../config';
 import { createHeadshot } from '../../../utils/images';
-import { NPC } from '../../../components/NPCComponent';
+import { NPC } from "../../../utils/NPC";
 
 const openaiConfig = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -48,12 +48,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if(npc['Headshot']) {
       const image = await createHeadshot(doc.id, npc);
       if(image) {
-        await doc.update({image});
+        await doc.update({Image: image});
       }
     }
   } catch(e: any) {
     console.log(e.toString());
-    if(!res.closed) {
+    if(!res.headersSent) {
       if(e instanceof Error) {
         res.status(500).json({error: e.message});
       } else {

@@ -3,7 +3,8 @@ import { useInterval } from 'usehooks-ts';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import config from '../config';
-import NPCComponent, { NPC } from '../components/NPCComponent';
+import NPCComponent from '../components/NPCComponent';
+import { NPC } from "../utils/NPC";
 import FooterComponent from '../components/FooterComponent';
 
 interface QueryResponse {

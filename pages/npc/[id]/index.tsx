@@ -2,7 +2,8 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../../../styles/Home.module.css';
-import NPCComponent, { NPC } from '../../../components/NPCComponent';
+import NPCComponent from '../../../components/NPCComponent';
+import { NPC } from "../../../utils/NPC";
 import db from '../../../utils/db';
 import config from '../../../config';
 
