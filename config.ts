@@ -155,7 +155,7 @@ User: `,
     imageModel: 'stable-diffusion-512-v2-0',
     imageSteps: 30,
     imageCfgScale: 7,
-    model: 'text-davinci-003',
+    model: 'text-curie-001',
     baseUrl: 'https://loregenie.com',
     gcsBucket: 'static.loregenie.com',
 };
