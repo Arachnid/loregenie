@@ -50,7 +50,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if(npc.headshot) {
       const image = await createHeadshot(doc.id, npc);
       if(image) {
-        await doc.update({Image: image});
+        await doc.update({image: image});
       }
     }
   } catch(e: any) {
