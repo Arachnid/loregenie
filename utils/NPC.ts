@@ -1,17 +1,18 @@
 export interface NPC {
-  Name: string;
-  Gender: string;
-  Race: string;
-  Alignment: string;
-  Age: string;
-  Profession: string;
-  Summary: string;
-  Personality: string;
-  Background: string;
-  "Physical description"?: string;
-  "Physical Description"?: string;
-  "Speaking style"?: string;
-  "Speaking Style"?: string;
-  Image: string;
-  Headshot: string;
+  name: string;
+  gender: string;
+  race: string;
+  alignment: string;
+  age: string;
+  profession: string;
+  summary: string;
+  personality: string;
+  background: string;
+  appearance: string;
+  diction: string;
+  headshot: string;
+  ideals: string;
+  bonds: string;
+  flaws: string;
+  image: string;
 }

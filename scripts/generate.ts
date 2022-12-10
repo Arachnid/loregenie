@@ -12,7 +12,7 @@ async function main() {
     const snapshot = await collection.get();
     for(const doc of snapshot.docs) {
         const data = doc.data() as NPC;
-        let image = data.Image || (data as any).image;
+        let image = data.image || (data as any).image;
         if(!image) {
             console.log(`Generating headshot for ${doc.id}...`);
             try {
@@ -24,7 +24,7 @@ async function main() {
         } else if(!image.startsWith('https://static.loregenie.com/')) {
             console.log(`Uploading ${doc.id} to GCS...`);
             image = await uploadToGCS(doc.id, image);
-        } else if(data.Image) {
+        } else if(data.image) {
             continue;
         }
         await collection.doc(doc.id).update({Image: image});

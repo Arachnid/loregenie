@@ -1,68 +1,24 @@
 export default {
     prompt: `
-You are a fantasy role-playing game NPC character generator. When prompted with a character concept, generate an NPC description.
+You are a fantasy role-playing game NPC character generator. When prompted with a character concept, generate an NPC description in the following format:
 
-User: A wise old bard
+name: <NPC's first and last name(s) (if any)>
+race: <NPC's race>
+gender: <NPC's gender, or 'None' if not applicable>
+age: <NPC's age in years. Should be appropriate to the NPC's race.>
+profession: <NPC's profession>
+alignment: <NPC's alignment>
+summary: <A 1-sentence summary of the NPC.>
+appearance: <A paragraph describing the NPC's appearance. Do not include the NPC's name in the description.>
+headshot: <A series of comma-separated descriptors of a character portrait of the NPC. Start with the NPC's race, gender (or 'genderless' if not applicable), and age group (infant, child, young, middle-aged, elderly, ancient) and include short physical descriptions of everything you would see in a portrait of the NPC.>
+personality: <A paragraph describing the NPC's personality in detail.>
+ideals: <A sentence describing the standard the NPC holds themselves to, written in first-person.>
+bonds: <A sentence describing the NPC's connection to people, places, or items, written in first-person.>
+flaws: <A sentence describing the NPC's weaknesses, written in first person.>
+diction: <A paragraph describing how the NPC speaks. Include accent, pitch and intonation, vocabulary, favorite phrases etc.>
+background: <A paragraph describing the NPC's history and background.>
 
-Name: Isla Ravenbreeze
-Race: Half-Elf
-Gender: Female
-Age: 81
-Profession: Bard
-Alignment: Neutral Good
-Summary: Isla is a wise, elderly, half-elf bard who is always willing to listen and help.
-Physical description: An elderly female half-elf with long, silver hair and almond-shaped eyes. Her skin is wrinkled and her movements are slow, but her eyes still sparkle with life. She wears a tattered cloak and a simple, silver harp hangs from her belt. 
-Headshot: elderly female half-elf, 81 years old, long silver hair, almond-shaped eyes, smiling, wrinkled skin, sparkling eyes, tattered cloak
-Personality: Isla is kind and wise, her years of travel and experience giving her a deep understanding of the world around her. She is patient and always willing to listen without judgement. She has a great respect for music and loves to tell stories and share her knowledge with others. She can often be found in taverns, playing her harp and spinning tales for the locals.
-Speaking style: Isla speaks in a gentle, soothing voice with a light, melodic lilt. She often speaks in rhyme or meter and her words are often full of metaphor and allegory. Her storytelling is captivating, often leaving her audience spellbound and enthralled.
-Background: Isla was born in the elven city of Moonwood to a human father and an elven mother. She was raised in both cultures and developed a deep love for music and storytelling. She left home at the age of 17 and began travelling around the world, collecting stories and learning new songs. She has now mastered many instruments and has been a professional bard for over sixty years, her repertoire of stories and songs extending far and wide.
-
-User: A hardworking blacksmith
-
-Name: Arminius Graven
-Race: Human
-Gender: Male
-Age: 55
-Profession: Blacksmith
-Alignment: Neutral Good
-Summary: An aging blacksmith with a gruff, no-nonsense attitude.
-Physical description: Arminius has a broad muscular frame and a face that is weathered from years of hard work. His hair is grey and thinning, and his nose is large and crooked, the result of a long-forgotten bar fight. He wears a leather apron over a simple tunic, and his hands are calloused and covered in soot.
-Headshot: Middle-aged male human, 55 years old, craggy weather-beaten face, large crooked nose, grey hair, leather apron
-Personality: Arminius is a gruff and no-nonsense man who speaks his mind and holds a firm sense of morality. He is loyal to those he trusts, and is willing to help out any in need, seeing it as his duty to use his skills to help his community. He is a bit of a traditionalist, refusing to use any of the newer technologies that have become popular in the last few decades.
-Speaking style: Arminius speaks with a gruff, deep voice that is often tinged with a slight accent from his homeland. He speaks slowly and deliberately, carefully weighing his words before speaking them. He often uses old-fashioned phrases, and has a tendency to mumble when he is deep in thought.
-Background: Arminius was born and raised in a small village on the outskirts of a large city. He trained as a blacksmith under his father's tutelage, and eventually inherited the family business when his father passed away. He has been a successful blacksmith for many years, and has earned a reputation for being a hardworking and honest man. He is very loyal to his community, and can often be found helping out his neighbors with whatever they need. He married late in life, and has two grown children who have left the village to pursue their own lives.
-
-User: An adventurous child
-
-Name: Emryl
-Race: Half-elf
-Gender: Female
-Age: 10
-Profession: Child
-Alignment: Neutral Good
-Summary: Emryl is a curious and courageous child with bright green eyes and unruly auburn hair.
-Physical description: Emryl stands at 4 feet tall with a small frame and delicate features. Her skin is fair and her eyes are a brilliant shade of green. Her unruly auburn hair is often found in a wild tangle, and she wears simple, comfortable clothing. She is always seen with a smile on her face and a twinkle in her eye.
-Headshot: Young female half-elf, 10 years old,  tousled auburn hair, fair skin, bright green eyes, mischievous smile
-Personality: Emryl is an adventurous and curious child with a courageous spirit. She loves to explore new places and meet new people, and she often jumps into situations without thinking them through. She is also fiercely loyal to her friends, and she will go to great lengths to protect them.
-Speaking style: Emryl speaks with a high-pitched, childlike voice and a slight lilt. She often speaks quickly, with a bubbly enthusiasm, and uses simple words and phrases. She loves to make jokes, and she often speaks in a sing-songy way.
-Background: Emryl is a half-elf from a small village in the forest. She loves to explore the area around her home and often goes on adventures with her friends. She is known for her bravery and courage, and she is always willing to stand up for what she believes in. She is also a gifted storyteller, and she loves to tell tales of her adventures.
-
-User: A grumpy homeless old man
-
-Name: Grumblebottom
-Race: Gnome
-Gender: Male
-Age: 457
-Profession: Homeless
-Alignment: Neutral
-Summary: A grumpy homeless gnome with a scruffy, disheveled appearance.
-Physical description: Grumblebottom is a small gnome, with a scruffy, disheveled appearance and an unkempt beard. He wears a threadbare brown cloak and seems to have an ever-present scowl on his face. His eyes are dull and listless, and his hands are calloused and rough.
-Headshot: Elderly male gnome, 457 years old, disheveled, scruffy, unkempt beard, scowling face, dull eyes.
-Personality: Grumblebottom is a grumpy, surly gnome who is far from friendly. He rarely speaks, and when he does, it's usually to grumble about something or another. He is distrustful of strangers and prefers to keep to himself, though he is known to be generous and helpful to those in need.
-Speaking style: Grumblebottom speaks in a low, gruff voice, with a heavy gnomish accent. His speech tends to be slow and drawn-out, and he has a habit of mumbling under his breath when he's not actually speaking.
-Background: Grumblebottom is a homeless gnome who has been wandering the land for many years. He has seen much in his travels, but keeps much of his past a secret. He was once an accomplished craftsman, but his fortunes have long since faded. He now wanders the land, living off the kindness of strangers and looking for a place he can call home.
-
-User: `,
+`,
     samples: [
         "an enchanted talking tree",
         "a mischievous imp disguised as a child",
@@ -155,7 +111,7 @@ User: `,
     imageModel: 'stable-diffusion-512-v2-0',
     imageSteps: 30,
     imageCfgScale: 7,
-    model: 'text-curie-001',
+    model: 'text-davinci-003',
     baseUrl: 'https://loregenie.com',
     gcsBucket: 'static.loregenie.com',
 };

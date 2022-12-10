@@ -8,15 +8,15 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
   return <>
     <div className={styles.npc}>
       <div className={styles.container}>
-        <img src={`${npc.Image}`} className={styles.avatar} alt={npc['Physical description']} width="256" height="256" />
-        <h1 className={styles.name}>{npc.Name}</h1>
-        <p className={styles.italic}>{npc.Gender !== "N/A" && npc.Gender !== "None" ? npc.Gender + " " : ""}{npc.Race}, {npc.Alignment}<br />
-        {npc.Age}{/\d/.test(npc.Age) ?  " year old " : " "}{npc.Profession}</p>
-        <p>{npc.Personality}</p>
+        <img src={`${npc.image}`} className={styles.avatar} alt={npc.appearance} width="256" height="256" />
+        <h1 className={styles.name}>{npc.name}</h1>
+        <p className={styles.italic}>{npc.gender !== "N/A" && npc.gender !== "None" ? npc.gender + " " : ""}{npc.race}, {npc.alignment}<br />
+        {npc.age}{/\d/.test(npc.age) ?  " year old " : " "}{npc.profession}</p>
+        <p>{npc.personality}</p>
         <hr className={styles.divider} />
-        <p>{npc.Background}</p>
-        <p>{npc['Physical description'] || npc['Physical Description']}</p>
-        <p>{npc['Speaking style'] || npc['Speaking Style']}</p>
+        <p>{npc.background}</p>
+        <p>{npc.appearance}</p>
+        <p>{npc.diction}</p>
         <hr className={styles.divider} />
         <div className={styles.icons}>
           <a href={absoluteUrl}><FaLink /></a>

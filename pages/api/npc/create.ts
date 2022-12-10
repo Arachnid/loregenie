@@ -30,8 +30,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
     const npc = Object.fromEntries(text.trim().split('\n').map((line) => {
       const idx = line.indexOf(':');
-      return [line.slice(0, idx), line.slice(idx + 1).trim()];
-    })) as unknown as NPC;
+      return [line.slice(0, idx).toLowerCase(), line.slice(idx + 1).trim()];
+    }).filter(([k, v]) => k.length > 0 && v.length > 0)) as unknown as NPC;
 
     const doc = await db.collection('npcs').add({
       prompt: req.body.query,
@@ -39,13 +39,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       ...npc
     });
 
-    npc.Image = `/api/npc/${doc.id}/image.png`;
+    npc.image = `/api/npc/${doc.id}/image.png`;
 
     // Return the model's response
     res.json({id: doc.id, data: npc});
     res.end();
 
-    if(npc['Headshot']) {
+    if(npc.headshot) {
       const image = await createHeadshot(doc.id, npc);
       if(image) {
         await doc.update({Image: image});

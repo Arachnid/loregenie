@@ -17,9 +17,9 @@ export const getServerSideProps: GetServerSideProps<{ id: string, npc: NPC }> = 
     }
   };
 
-  if(!npcData.Image) {
+  if(!npcData.image) {
     // Not finished rendering, use our endpoint that will wait.
-    npcData.Image = `/api/npc/${id}/image.png`;
+    npcData.image = `/api/npc/${id}/image.png`;
   }
 
   return {
@@ -34,13 +34,13 @@ export default function NPCPage({ id, npc }: InferGetServerSidePropsType<typeof 
   return (
     <>
       <Head>
-        <title>{npc.Name} - Lore Genie</title>
+        <title>{npc.name} - Lore Genie</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@lore_genie" />
         <meta property="og:url" content={`${config.baseUrl}/npc/${id}`} />
-        <meta property="og:title" content={npc.Name} />
-        <meta property="og:description" content={npc.Summary || npc.Personality} />
-        <meta property="og:image" content={npc.Image} />
+        <meta property="og:title" content={npc.name} />
+        <meta property="og:description" content={npc.summary || npc.personality} />
+        <meta property="og:image" content={npc.image} />
       </Head>
 
       <main className={styles.main}>

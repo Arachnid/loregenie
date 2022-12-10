@@ -45,7 +45,7 @@ export async function createHeadshot(id: string, npc: NPC): Promise<string> {
     request.setRequestId(uuid4());
     
     const prompt = new Prompt();
-    prompt.setText(`${config.imagePromptPrefix}, ${npc['Headshot']}, ${config.imagePromptSuffix}`);
+    prompt.setText(`${config.imagePromptPrefix}, ${npc.headshot}, ${config.imagePromptSuffix}`);
     const params = new PromptParameters();
     params.setWeight(1.0);
     prompt.setParameters(params);
