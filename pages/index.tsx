@@ -98,13 +98,18 @@ const QueryPage: React.FC = () => {
               disabled={isSubmitting}
             />
 
-            {isSubmitting ?
+            {/* {isSubmitting ?
               <div className={styles.loading}>
                 <p>{loadingMessage}</p>
               </div>
             :
               <button type="submit" disabled={query.length == 0}>Roll</button>
-            }
+            } */}
+
+            <div className={styles.disabled}>
+              <p>We have reached our API limit but will be back online shortly!</p>
+            </div>
+
           </form>
         </div>
         
