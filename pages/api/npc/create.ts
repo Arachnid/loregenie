@@ -30,7 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
     const npc = Object.fromEntries(text.trim().split('\n').map((line) => {
       const idx = line.indexOf(':');
-      return [line.slice(0, idx).toLowerCase(), line.slice(idx + 1).trim()];
+      return [line.slice(0, idx).toLowerCase(), line.slice(idx + 1).replace(/^[\W"]+|[\W"]+$/g, '')];
     }).filter(([k, v]) => k.length > 0 && v.length > 0)) as unknown as NPC;
 
     npc.created = new Date().toISOString();
