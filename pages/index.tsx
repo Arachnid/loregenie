@@ -105,6 +105,11 @@ const QueryPage: React.FC = () => {
             :
               <button type="submit" disabled={query.length == 0}>Roll</button>
             }
+
+            {/* <div className={styles.disabled}>
+              <p>We have reached our API limit but will be back shortly!</p>
+            </div> */}
+
           </form>
         </div>
         
