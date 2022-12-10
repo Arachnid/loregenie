@@ -15,4 +15,5 @@ export interface NPC {
   bonds: string;
   flaws: string;
   image: string;
+  created: string;
 }

@@ -33,6 +33,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return [line.slice(0, idx).toLowerCase(), line.slice(idx + 1).trim()];
     }).filter(([k, v]) => k.length > 0 && v.length > 0)) as unknown as NPC;
 
+    npc.created = new Date().toISOString();
+
     const doc = await db.collection('npcs').add({
       prompt: req.body.query,
       model: config.model,

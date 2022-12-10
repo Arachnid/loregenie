@@ -13,24 +13,25 @@ async function main() {
     for(const doc of snapshot.docs) {
         const data = doc.data() as any;
         const newNpc = {
-            name: data.name || data.Name,
-            race: data.race || data.Race,
+            name: data.name || data.Name || null,
+            race: data.race || data.Race || null,
             gender: data.gender || data.Gender || 'None',
-            age: data.age || data.Age,
-            profession: data.profession || data.Profession,
-            alignment: data.alignment || data.Alignment,
-            summary: data.summary || data.Summary,
-            appearance: data['Physical Appearance'] || data['Physical appearance'],
-            headshot: data.headshot || data.Headshot,
-            personality: data.personality || data.Personality,
-            ideals: data.ideals,
-            bonds: data.bonds,
-            flaws: data.flaws,
-            diction: data['Speaking style'] || data['Speaking Style'],
-            background: data.background || data.Background,
-            image: data.image || data.Image,
+            age: data.age || data.Age || null,
+            profession: data.profession || data.Profession || null,
+            alignment: data.alignment || data.Alignment || null,
+            summary: data.summary || data.Summary || null,
+            appearance: data['Physical Appearance'] || data['Physical appearance'] || null,
+            headshot: data.headshot || data.Headshot || null,
+            personality: data.personality || data.Personality || null,
+            ideals: data.ideals || null,
+            bonds: data.bonds || null,
+            flaws: data.flaws || null,
+            diction: data['Speaking style'] || data['Speaking Style'] || null,
+            background: data.background || data.Background || null,
+            image: data.image || data.Image || null,
         }
         await collection.doc(doc.id).set(newNpc);
+        console.log(doc.id);
     }
 }
 
