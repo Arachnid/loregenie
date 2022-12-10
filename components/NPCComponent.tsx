@@ -19,21 +19,25 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
 
         <h1 className={styles.name}>{npc.name}</h1>
 
-        <p className={styles.italic}>{npc.gender !== "N/A" && npc.gender !== "None" ? npc.gender + " " : ""}{npc.race}, {npc.alignment}<br />
+        <p className={styles.info}>{npc.gender !== "N/A" && npc.gender !== "None" ? npc.gender + " " : ""}{npc.race}, {npc.alignment}<br />
         {npc.age}{/\d/.test(npc.age) ?  " year old " : " "}{npc.profession}</p>
 
         <p>{npc.personality}</p>
 
-        {npc.ideals && <span>{npc.ideals}<br /></span>}
-        {npc.bonds && <span>{npc.bonds}<br /></span>}
-        {npc.flaws && <span>{npc.flaws}<br /></span>}
+        <hr />
 
-        <hr className={styles.divider} />
+        {npc.ideals && <i>{npc.ideals}<br /></i>}
+        {npc.bonds && <i>{npc.bonds}<br /></i>}
+        {npc.flaws && <i>{npc.flaws}<br /></i>}
 
+        <h2>Background</h2>
         <p>{npc.background}</p>
+        <h2>Appearance</h2>
         <p>{npc.appearance}</p>
+        <h2>Speaking Style</h2>
         <p>{npc.diction}</p>
-        <hr className={styles.divider} />
+        
+        <hr />
 
         <div className={styles.icons}>
           <a href={absoluteUrl}><FaLink /></a>
