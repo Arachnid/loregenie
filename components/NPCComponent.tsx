@@ -1,5 +1,6 @@
 import styles from '../styles/NPC.module.css';
 import { FaLink, FaTwitter } from 'react-icons/fa';
+import Image from 'next/image'
 import config from '../config';
 import { NPC } from '../utils/NPC';
 
@@ -8,7 +9,7 @@ function NPCComponent({ npc, id } : { npc: NPC, id: string }) {
   return <>
     <div className={styles.npc}>
       <div className={styles.container}>
-        <img
+        <Image
           src={`${npc.image}`}
           className={styles.avatar}
           alt={npc.appearance}
