@@ -23,11 +23,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         temperature: 0.7,
       }
     );
+
     const text = result.data.choices[0].text;
     if(!text) {
       res.json({error: 'No data returned'});
       return;
     }
+
+    const moderation = await openai.createModeration({input: text});
+    const fails = config.deleteCategories.filter((category) => (moderation.data.results[0].categories as any)[category]);
+    if(fails.length > 0) {
+      res.json({error: 'The model generated a result that violates the content filter.'});
+      return;
+    }
+
     const npc = Object.fromEntries(text.trim().split('\n').map((line) => {
       const idx = line.indexOf(':');
       return [line.slice(0, idx).toLowerCase(), line.slice(idx + 1).replace(/^[\W"]+|[\W"]+$/g, '')];

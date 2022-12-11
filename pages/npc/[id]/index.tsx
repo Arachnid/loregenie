@@ -34,7 +34,7 @@ export default function NPCPage({ id, npc }: InferGetServerSidePropsType<typeof 
   return (
     <>
       <Head>
-        <title>{npc.name} - Lore Genie</title>
+        <title>{npc.name + "- Lore Genie"}</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@lore_genie" />
         <meta property="og:url" content={`${config.baseUrl}/npc/${id}`} />

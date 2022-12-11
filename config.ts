@@ -103,6 +103,11 @@ background: <A paragraph describing the NPC's history and background.>
         "Crafting a heartwarming reunion...",
         "Loading a devastating loss...",
     ],
+    deleteCategories: [
+        'hate/threatening',
+        'sexual/minors',
+        'violence/graphic',
+    ],
     imagePromptPrefix: 'd&d character portrait, headshot, centered',
     imagePromptSuffix: 'various colors, fantastic, in the style of kerem beyit, Kieran Yanner',
     negativeImagePrompt: 'truncated, poorly drawn, badly framed, cgi, photograph, photo, runes',

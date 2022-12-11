@@ -2,7 +2,7 @@ import {Configuration, OpenAIApi} from 'openai';
 import { NPC } from "../utils/NPC";
 import db from '../utils/db';
 import { writeFile } from 'fs/promises';
-import { fstat } from 'fs';
+import config from '../config';
 
 const VALIDATION_PERCENT = 0.01;
 
@@ -34,12 +34,6 @@ const npcFields = [
     'background'
 ];
 
-const deleteCategories = [
-    'hate/threatening',
-    'sexual/minors',
-    'violence/graphic',
-]
-
 function toJSONL(lines: object[]) {
     return lines.map((line) => JSON.stringify(line)).join('\n');
 }
@@ -63,7 +57,7 @@ async function main() {
         const moderation = await openai.createModeration({
             input: completion.completion
         });
-        const fails = deleteCategories.filter((category) => (moderation.data.results[0].categories as any)[category]);
+        const fails = config.deleteCategories.filter((category) => (moderation.data.results[0].categories as any)[category]);
         if(fails.length > 0) {
             console.log(`!!! Deleting https://loregenie.com/npc/${doc.id} "${npc.prompt}" for violation of ${fails}`);
             await collection.doc(doc.id).delete();
