@@ -104,6 +104,7 @@ background: <A paragraph describing the NPC's history and background.>
         "Loading a devastating loss...",
     ],
     deleteCategories: [
+        'hate',
         'hate/threatening',
         'sexual/minors',
         'violence/graphic',

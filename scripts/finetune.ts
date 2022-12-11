@@ -40,7 +40,7 @@ function toJSONL(lines: object[]) {
 
 async function main() {
     const collection = db.collection('npcs');
-    const snapshot = await collection.where('created', '!=', null).get();
+    const snapshot = await collection.where('created', '!=', null).orderBy('created', 'desc').get();
     const promptsSeen = new Set<string>();
     const completions: {prompt: string, completion: string}[] = [];
     for(const doc of snapshot.docs) {
