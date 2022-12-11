@@ -34,12 +34,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }).filter(([k, v]) => k.length > 0 && v.length > 0)) as unknown as NPC;
 
     npc.created = new Date().toISOString();
+    npc.prompt = req.body.query;
+    npc.model = config.model;
 
-    const doc = await db.collection('npcs').add({
-      prompt: req.body.query,
-      model: config.model,
-      ...npc
-    });
+    const doc = await db.collection('npcs').add(npc);
 
     npc.image = `/api/npc/${doc.id}/image.png`;
 

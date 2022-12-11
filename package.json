@@ -7,15 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": ""
+    "script": "npx ts-node"
   },
   "dependencies": {
     "@google-cloud/storage": "^6.8.0",
     "@improbable-eng/grpc-web": "^0.15.0",
     "@improbable-eng/grpc-web-node-http-transport": "^0.15.0",
-    "@types/node": "18.11.11",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.9",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
     "firebase-admin": "^11.3.0",
@@ -33,6 +30,9 @@
   },
   "devDependencies": {
     "@types/node-fetch": "^2.6.2",
-    "@types/uuid4": "^2.0.0"
+    "@types/uuid4": "^2.0.0",
+    "@types/node": "18.11.11",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9"
   }
 }

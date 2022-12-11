@@ -14,6 +14,8 @@ export interface NPC {
   ideals: string;
   bonds: string;
   flaws: string;
-  image: string;
+  image?: string;
   created: string;
+  prompt: string;
+  model: string;
 }
