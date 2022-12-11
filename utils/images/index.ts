@@ -11,6 +11,7 @@ import {
   StepParameter,
   Answer,
   ArtifactType,
+  FinishReason
 } from 'stability-sdk/gooseai/generation/generation_pb'
 import { NodeHttpTransport } from '@improbable-eng/grpc-web-node-http-transport'
 import { EventEmitter } from 'events';
@@ -35,6 +36,45 @@ interface ResponseData {
   code: grpc.Code
   message: string
   trailers: grpc.Metadata
+}
+
+async function generateImage(imageGenerationHost: string, apiKey: string, request: Request): Promise<Buffer> {
+    let image: {data: Buffer, finishReason: number} | undefined;
+    for(let i = 0; i < config.imageRetries; i++) {
+        const images = await new Promise<{data:Buffer, finishReason: number}[]>((resolve, reject) => {
+            const images: {data: Buffer, finishReason: number}[] = [];
+            grpc.invoke(GenerationService.Generate, {
+                request,
+                host: imageGenerationHost,
+                metadata: new grpc.Metadata({ Authorization: `Bearer ${apiKey}`}),
+                transport: NodeHttpTransport(),
+                onEnd: (code, message, trailers) => {
+                    if(code === grpc.Code.OK) {
+                        resolve(images);
+                    } else {
+                        reject(message);
+                    }
+                },
+                onMessage: (message: Answer) => {
+                    const answer = message.toObject();
+                    if(!answer.artifactsList) {
+                        return;
+                    }
+                    answer.artifactsList.forEach(({ type, binary, finishReason }) => {
+                        if(type === ArtifactType.ARTIFACT_IMAGE) {
+                            images.push({data: Buffer.from(binary as string, 'base64'), finishReason});
+                        }
+                    });
+                }
+            });
+        });
+        image = images[0];
+        if(image.finishReason != FinishReason.FILTER) {
+            break;
+        }
+        console.log(`Image was filtered on attempt ${i+2}`);
+    }
+    return image?.data as Buffer;
 }
 
 export async function createHeadshot(id: string, npc: NPC): Promise<string> {
@@ -79,34 +119,8 @@ export async function createHeadshot(id: string, npc: NPC): Promise<string> {
 
     request.setImage(image);
 
-    const images = await new Promise<Buffer[]>((resolve, reject) => {
-        const images: Buffer[] = [];
-        grpc.invoke(GenerationService.Generate, {
-            request,
-            host: config.imageGenerationHost,
-            metadata: new grpc.Metadata({ Authorization: `Bearer ${process.env.STABILITY_API_KEY}`}),
-            transport: NodeHttpTransport(),
-            onEnd: (code, message, trailers) => {
-                if(code === grpc.Code.OK) {
-                    resolve(images);
-                } else {
-                    reject(message);
-                }
-            },
-            onMessage: (message: Answer) => {
-                const answer = message.toObject();
-                if(!answer.artifactsList) {
-                    return;
-                }
-                answer.artifactsList.forEach(({ type, binary }) => {
-                    if(type === ArtifactType.ARTIFACT_IMAGE) {
-                        images.push(Buffer.from(binary as string, 'base64'));
-                    }
-                });
-            }
-        });
-    });
-    await bucket.file(`${id}.png`).save(images[0]);
+    const imageData = await generateImage(config.imageGenerationHost, process.env.STABILITY_API_KEY as string, request);
+    await bucket.file(`${id}.png`).save(imageData);
     return `https://${config.gcsBucket}/${id}.png`;
 }
 

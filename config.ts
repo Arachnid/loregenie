@@ -120,4 +120,5 @@ background: <A paragraph describing the NPC's history and background.>
     model: 'text-davinci-003',
     baseUrl: 'https://loregenie.com',
     gcsBucket: 'static.loregenie.com',
+    imageRetries: 3,
 };
