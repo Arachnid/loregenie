@@ -12,8 +12,16 @@ const openaiConfig = new Configuration({
 
 const openai = new OpenAIApi(openaiConfig);
   
-function normalise(s: string) {
+function normalisePrompt(s: string) {
     return s.toLowerCase().trim();
+}
+
+function normaliseSentence(s: string) {
+    return s.endsWith('.') ? s.trim() + '.' : s.trim();
+}
+
+function toJSONL(lines: object[]) {
+    return lines.map((line) => JSON.stringify(line)).join('\n');
 }
 
 const npcFields = [
@@ -23,6 +31,8 @@ const npcFields = [
     'age',
     'profession',
     'alignment',
+];
+const npcSentenceFields = [
     'summary',
     'appearance',
     'headshot',
@@ -31,40 +41,37 @@ const npcFields = [
     'bonds',
     'flaws',
     'diction',
-    'background'
+    'background',
 ];
-
-function toJSONL(lines: object[]) {
-    return lines.map((line) => JSON.stringify(line)).join('\n');
-}
+const allFields = Array.prototype.concat(npcFields, npcSentenceFields);
 
 async function main() {
     const collection = db.collection('npcs');
-    const snapshot = await collection.where('created', '!=', null).orderBy('created', 'desc').get();
+    const snapshot = await collection.where('created', '!=', null).get();
     const promptsSeen = new Set<string>();
     const completions: {prompt: string, completion: string}[] = [];
     for(const doc of snapshot.docs) {
         const npc = doc.data() as NPC;
-        const normalisedPrompt = normalise(npc.prompt);
+        const title = `https://loregenie.com/npc/${doc.id} "${npc.prompt}"`;
+        const normalisedPrompt = normalisePrompt(npc.prompt);
         if(promptsSeen.has(normalisedPrompt)) {
             continue;
         }
         promptsSeen.add(normalisedPrompt);
-        const completion = {
-            prompt: npc.prompt.trim() + '\n',
-            completion: npcFields.map((field) => `${field}: ${(npc as any)[field]}`).join('\n') + '\n\n',
-        };
-        const moderation = await openai.createModeration({
-            input: completion.completion
-        });
-        const fails = config.deleteCategories.filter((category) => (moderation.data.results[0].categories as any)[category]);
-        if(fails.length > 0) {
-            console.log(`!!! Deleting https://loregenie.com/npc/${doc.id} "${npc.prompt}" for violation of ${fails}`);
-            await collection.doc(doc.id).delete();
+        const missingFields = allFields.filter((field) => (npc as any)[field] == undefined);
+        if(missingFields.length > 0) {
+            console.log(`Skipping ${title}: missing ${missingFields}`);
             continue;
         }
+        const completion = {
+            prompt: npc.prompt.trim() + '\n',
+            completion: Array.prototype.concat(
+                npcFields.map((field) => `${field}: ${(npc as any)[field]}`),
+                npcSentenceFields.map((field) => `${field}: ${normaliseSentence((npc as any)[field])}`),
+            ).join('\n') + '\n\n',
+        };
         completions.push(completion);
-        console.log(`Adding https://loregenie.com/npc/${doc.id} "${npc.prompt}"`);
+        console.log(`Adding ${title}`);
     }
 
     const trainingCompletions = completions.slice(0, completions.length * (1 - VALIDATION_PERCENT));
