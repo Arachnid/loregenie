@@ -1,24 +1,5 @@
 export default {
-    prompt: `
-You are a fantasy role-playing game NPC character generator. When prompted with a character concept, generate an NPC description in the following format:
-
-name: <NPC's first and last name(s) (if any)>
-race: <NPC's race>
-gender: <NPC's gender, or 'None' if not applicable>
-age: <NPC's age in years. Should be appropriate to the NPC's race.>
-profession: <NPC's profession>
-alignment: <NPC's alignment>
-summary: <A 1-sentence summary of the NPC.>
-appearance: <A paragraph describing the NPC's appearance. Do not include the NPC's name in the description.>
-headshot: <A series of comma-separated descriptors of a character portrait of the NPC. Start with the NPC's race, gender (or 'genderless' if not applicable), and age group (infant, child, young, middle-aged, elderly, ancient) and include short physical descriptions of everything you would see in a portrait of the NPC.>
-personality: <A paragraph describing the NPC's personality in detail.>
-ideals: <A sentence describing the standard the NPC holds themselves to, written in first-person.>
-bonds: <A sentence describing the NPC's connection to people, places, or items, written in first-person.>
-flaws: <A sentence describing the NPC's weaknesses, written in first person.>
-diction: <A paragraph describing how the NPC speaks. Include accent, pitch and intonation, vocabulary, favorite phrases etc.>
-background: <A paragraph describing the NPC's history and background.>
-
-`,
+    prompt: ``,
     samples: [
         "an enchanted talking tree",
         "a mischievous imp disguised as a child",
@@ -117,7 +98,7 @@ background: <A paragraph describing the NPC's history and background.>
     imageModel: 'stable-diffusion-512-v2-0',
     imageSteps: 30,
     imageCfgScale: 7,
-    model: 'text-davinci-003',
+    model: 'curie:ft-personal:npcs-2022-12-11-01-42-32',
     baseUrl: 'https://loregenie.com',
     gcsBucket: 'static.loregenie.com',
     imageRetries: 3,

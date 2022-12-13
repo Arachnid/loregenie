@@ -21,6 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         model: config.model,
         max_tokens: 512,
         temperature: 0.7,
+        stop: ['\n\n'],
       }
     );
 
